@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: translateY(-30px) rotate(3deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.95; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 2.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+.typewriter {
+  border-right: 2px solid theme('colors.blue.400');
+  white-space: nowrap;
+  overflow: hidden;
+  animation: 
+    typing 3s steps(40, end) 1s both,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: theme('colors.blue.400'); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.slate.800');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.blue.600');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.blue.500');
+}
+
+/* In your global CSS */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern-dark {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
