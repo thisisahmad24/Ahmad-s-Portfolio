@@ -154,7 +154,7 @@ const Navbar = React.memo(() => {
 
             {/* Resume Button */}
             <motion.a
-              href="/AhmadHassanResume.pdf"
+              href="/resume.pdf"
               download="Ahmad_Hassan_Resume.pdf"
               whileHover={{
                 scale: 1.05,
@@ -251,7 +251,7 @@ const Navbar = React.memo(() => {
 
               {/* Resume in Mobile Menu */}
               <motion.a
-                href="/AhmadHassanResume.pdf"
+                href="/resume.pdf"
                 download="Ahmad_Hassan_Resume.pdf"
                 custom={links.length}
                 variants={mobileLinkVariants}

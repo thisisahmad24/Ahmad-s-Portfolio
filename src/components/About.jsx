@@ -52,7 +52,7 @@ const About = () => {
                 AI Engineer & Full-Stack Developer
               </p>
               <motion.div className="flex justify-center md:justify-start gap-4" whileHover={{ scale: 1.05 }}>
-                <a href="/resume.pdf" className="btn-primary text-sm md:text-base px-4 py-2">
+                <a href="/resume.pdf" download="Ahmad_Hassan_Resume.pdf" className="btn-primary text-sm md:text-base px-4 py-2">
                   View Resume
                 </a>
               </motion.div>
