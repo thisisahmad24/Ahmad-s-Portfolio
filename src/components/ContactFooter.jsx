@@ -30,6 +30,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
       const response = await fetch("https://formspree.io/f/mvgronjn", {
         method: "POST",
         headers: {
+          "Accept": "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
