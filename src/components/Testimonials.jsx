@@ -31,7 +31,7 @@ const Testimonials = () => {
     <section
       id="testimonials"
       className={`relative py-24 px-6 ${
-        isDark ? "bg-gray-900" : "bg-indigo-50"
+        isDark ? "bg-zinc-950" : "bg-red-50"
       } transition-colors duration-300`}
     >
       <div className="max-w-7xl mx-auto">
@@ -67,14 +67,14 @@ const Testimonials = () => {
               whileHover={{ y: -10 }}
               className={`group relative p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
                 isDark
-                  ? "bg-gray-800 hover:bg-gray-750"
+                  ? "bg-zinc-900 hover:bg-zinc-800"
                   : "bg-white hover:bg-gray-50"
               }`}
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8">
                 <div
                   className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl ${
-                    isDark ? "bg-indigo-900/30" : "bg-indigo-100"
+                    isDark ? "bg-red-900/30" : "bg-red-100"
                   }`}
                 >
                   {testimonial.avatar}
@@ -83,12 +83,12 @@ const Testimonials = () => {
 
               <FaQuoteLeft
                 className={`text-xl absolute top-12 left-6 ${
-                  isDark ? "text-indigo-400/50" : "text-indigo-500/50"
+                  isDark ? "text-red-400/50" : "text-red-500/50"
                 }`}
               />
               <FaQuoteRight
                 className={`text-xl absolute bottom-12 right-6 ${
-                  isDark ? "text-indigo-400/50" : "text-indigo-500/50"
+                  isDark ? "text-red-400/50" : "text-red-500/50"
                 }`}
               />
 
@@ -115,7 +115,7 @@ const Testimonials = () => {
                   </h4>
                   <p
                     className={`text-sm font-medium ${
-                      isDark ? "text-indigo-400" : "text-indigo-600"
+                      isDark ? "text-red-400" : "text-red-600"
                     }`}
                   >
                     {testimonial.role}
@@ -126,8 +126,8 @@ const Testimonials = () => {
               <div
                 className={`absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
                   isDark
-                    ? "border-indigo-400/20"
-                    : "border-indigo-500/20"
+                    ? "border-red-400/20"
+                    : "border-red-500/20"
                 }`}
               />
             </motion.div>
@@ -140,12 +140,12 @@ const Testimonials = () => {
         <div className="max-w-7xl mx-auto h-full">
           <div
             className={`hidden md:block absolute top-1/4 left-20 w-24 h-24 rounded-full blur-3xl opacity-50 ${
-              isDark ? "bg-indigo-900" : "bg-indigo-200"
+              isDark ? "bg-red-900" : "bg-red-200"
             }`}
           />
           <div
             className={`hidden md:block absolute bottom-1/4 right-20 w-24 h-24 rounded-full blur-3xl opacity-50 ${
-              isDark ? "bg-indigo-900" : "bg-indigo-200"
+              isDark ? "bg-red-900" : "bg-red-200"
             }`}
           />
         </div>
