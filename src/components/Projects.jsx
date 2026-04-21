@@ -63,7 +63,7 @@ const Projects = () => {
     : professionalProjects;
 
   return (
-    <section id="projects" className={`w-full py-24 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}>
+    <section id="projects" className={`w-full py-24 ${isDark ? "bg-zinc-950" : "bg-gray-50"}`}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-20 text-center">
@@ -92,9 +92,9 @@ const Projects = () => {
               onClick={() => setSelectedTech(null)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 !selectedTech
-                  ? "bg-blue-600 text-white"
+                  ? "bg-red-600 text-white"
                   : isDark
-                  ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  ? "bg-zinc-900 text-gray-300 hover:bg-zinc-800"
                   : "bg-white text-gray-600 hover:bg-gray-100"
               }`}
             >
@@ -106,9 +106,9 @@ const Projects = () => {
                 onClick={() => setSelectedTech(tech)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   selectedTech === tech
-                    ? "bg-blue-600 text-white"
+                    ? "bg-red-600 text-white"
                     : isDark
-                    ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    ? "bg-zinc-900 text-gray-300 hover:bg-zinc-800"
                     : "bg-white text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -133,7 +133,7 @@ const Projects = () => {
             </h3>
             <button
               onClick={() => setSelectedTech(null)}
-              className={`px-6 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors`}
+              className={`px-6 py-3 rounded-lg font-medium bg-red-600 hover:bg-red-700 text-white transition-colors`}
             >
               View All Projects
             </button>
@@ -150,13 +150,13 @@ const ProjectCard = ({ project, index, isDark }) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1, duration: 0.5 }}
     className={`group relative h-full flex flex-col ${
-      isDark ? "bg-gray-800" : "bg-white"
+      isDark ? "bg-zinc-900" : "bg-white"
     } rounded-xl shadow-lg hover:shadow-xl overflow-hidden border ${
-      isDark ? "border-gray-700" : "border-gray-200"
+      isDark ? "border-zinc-800" : "border-gray-200"
     } transition-all`}
   >
     <div
-      className={`h-48 ${isDark ? "bg-gray-700" : "bg-gray-100"} flex items-center justify-center`}
+      className={`h-48 ${isDark ? "bg-zinc-800" : "bg-gray-100"} flex items-center justify-center`}
     >
       <div className={`text-4xl font-bold ${isDark ? "text-gray-600" : "text-gray-300"}`}>
         {project.id.toString().padStart(2, "0")}
@@ -165,13 +165,13 @@ const ProjectCard = ({ project, index, isDark }) => (
 
     <div className="p-6 flex-1 flex flex-col">
       <div className="flex justify-between items-start mb-3">
-        <span className={`text-sm font-medium ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+        <span className={`text-sm font-medium ${isDark ? "text-red-400" : "text-red-600"}`}>
           {project.year}
         </span>
         {project.featured && (
           <span
             className={`px-2 py-1 text-xs font-bold rounded ${
-              isDark ? "bg-purple-900/30 text-purple-400" : "bg-purple-100 text-purple-800"
+              isDark ? "bg-rose-900/30 text-rose-400" : "bg-rose-100 text-rose-800"
             }`}
           >
             Featured
@@ -193,7 +193,7 @@ const ProjectCard = ({ project, index, isDark }) => (
             <span
               key={tech}
               className={`px-3 py-1 rounded-full text-xs font-medium ${
-                isDark ? "bg-gray-700 text-blue-400" : "bg-blue-100 text-blue-800"
+                isDark ? "bg-zinc-800 text-red-400" : "bg-red-100 text-red-800"
               }`}
             >
               {tech}
@@ -207,7 +207,7 @@ const ProjectCard = ({ project, index, isDark }) => (
             target="_blank"
             rel="noopener noreferrer"
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg ${
-              isDark ? "bg-gray-700 hover:bg-gray-600" : "bg-gray-100 hover:bg-gray-200"
+              isDark ? "bg-zinc-800 hover:bg-zinc-700" : "bg-gray-100 hover:bg-gray-200"
             } transition-colors`}
           >
             <FiGithub className="w-5 h-5" />
@@ -218,7 +218,7 @@ const ProjectCard = ({ project, index, isDark }) => (
             target="_blank"
             rel="noopener noreferrer"
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg ${
-              isDark ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-600 hover:bg-blue-700"
+              isDark ? "bg-red-600 hover:bg-red-700" : "bg-red-600 hover:bg-red-700"
             } text-white transition-colors`}
           >
             <FiExternalLink className="w-5 h-5" />
