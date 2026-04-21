@@ -27,7 +27,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
     setError("");
 
     try {
-      const response = await fetch("https://formspree.io/f/mvgronjn", {
+      const response = await fetch("https://formspree.io/f/mkokqggg", {
         method: "POST",
         headers: {
           "Accept": "application/json",
