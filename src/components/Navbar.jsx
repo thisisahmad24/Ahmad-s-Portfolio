@@ -56,7 +56,7 @@ const Navbar = React.memo(() => {
 
   const linkHover = {
     scale: 1.1,
-    color: isDark ? "#a78bfa" : "#9333EA",
+    color: isDark ? "#f87171" : "#dc2626",
     transition: { type: "spring", stiffness: 400, damping: 10 },
   };
 
@@ -76,7 +76,7 @@ const Navbar = React.memo(() => {
       animate="animate"
       className={`fixed w-full z-50 backdrop-blur-md ${
         isDark
-          ? "bg-gray-900/80 border-gray-700"
+          ? "bg-zinc-950/80 border-gray-700"
           : "bg-white/80 border-gray-200"
       } border-b ${scrolled ? "shadow-lg" : "shadow-sm"}`}
       aria-label="Main navigation"
@@ -95,7 +95,7 @@ const Navbar = React.memo(() => {
               closeNav();
             }}
             className={`text-xl md:text-2xl font-extrabold ${
-              isDark ? "text-purple-400" : "text-indigo-600"
+              isDark ? "text-red-400" : "text-red-600"
             } cursor-pointer`}
           >
             Ahmad Hassan
@@ -108,13 +108,13 @@ const Navbar = React.memo(() => {
             onClick={toggleTheme}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            className="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
           >
             {isDark ? (
-              <FiSun className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+              <FiSun className="w-5 h-5 md:w-6 md:h-6 text-red-400" />
             ) : (
-              <FiMoon className="w-5 h-5 md:w-6 md:h-6 text-indigo-600" />
+              <FiMoon className="w-5 h-5 md:w-6 md:h-6 text-red-600" />
             )}
           </motion.button>
 
@@ -134,8 +134,8 @@ const Navbar = React.memo(() => {
                   } font-medium pb-1 px-1 ${
                     activeLink === link.to
                       ? isDark
-                        ? "text-purple-400"
-                        : "text-indigo-600"
+                        ? "text-red-400"
+                        : "text-red-600"
                       : ""
                   }`}
                 >
@@ -143,7 +143,7 @@ const Navbar = React.memo(() => {
                   <motion.span
                     layoutId="underline"
                     className="absolute left-0 bottom-0 h-0.5"
-                    style={{ backgroundColor: isDark ? "#a78bfa" : "#9333EA" }}
+                    style={{ backgroundColor: isDark ? "#f87171" : "#dc2626" }}
                     initial={false}
                     animate={{ width: activeLink === link.to ? "100%" : "0%" }}
                     transition={{ duration: 0.3, type: "spring" }}
@@ -159,16 +159,16 @@ const Navbar = React.memo(() => {
               whileHover={{
                 scale: 1.05,
                 boxShadow: isDark
-                  ? "0 0 8px rgba(167,139,250,0.5)"
-                  : "0 0 8px rgba(30,64,175,0.5)",
+                  ? "0 0 8px rgba(248,113,113,0.5)"
+                  : "0 0 8px rgba(220,38,38,0.5)",
               }}
               whileTap={{ scale: 0.95 }}
               className={`flex items-center gap-2 px-4 py-2 ${
                 isDark
-                  ? "bg-purple-600 hover:bg-purple-700 text-white"
-                  : "bg-indigo-600 hover:bg-indigo-700 text-white"
+                  ? "bg-red-600 hover:bg-red-700 text-white"
+                  : "bg-red-600 hover:bg-red-700 text-white"
               } rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                isDark ? "focus:ring-purple-500" : "focus:ring-indigo-500"
+                isDark ? "focus:ring-red-500" : "focus:ring-red-500"
               }`}
             >
               <FiDownload className="w-4 h-4 md:w-5 md:h-5" />
@@ -181,7 +181,7 @@ const Navbar = React.memo(() => {
             onClick={toggleNav}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 rounded-full"
+            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 rounded-full"
           >
             {navOpen ? (
               <HiOutlineX
@@ -212,7 +212,7 @@ const Navbar = React.memo(() => {
             }}
             exit={{ height: 0, opacity: 0, transition: { duration: 0.2 } }}
             className={`md:hidden backdrop-blur-sm overflow-hidden ${
-              isDark ? "bg-gray-900/95" : "bg-white/95"
+              isDark ? "bg-zinc-950/95" : "bg-white/95"
             }`}
           >
             <div className="flex flex-col px-4 pt-2 pb-4 space-y-2">
@@ -237,8 +237,8 @@ const Navbar = React.memo(() => {
                     className={`block py-2 text-base font-medium ${
                       activeLink === link.to
                         ? isDark
-                          ? "text-purple-400"
-                          : "text-indigo-600"
+                          ? "text-red-400"
+                          : "text-red-600"
                         : isDark
                         ? "text-gray-300"
                         : "text-gray-700"
@@ -259,8 +259,8 @@ const Navbar = React.memo(() => {
                 animate="animate"
                 className={`mt-1 flex items-center justify-center gap-2 text-base font-medium px-4 py-2 rounded-lg ${
                   isDark
-                    ? "bg-purple-600 hover:bg-purple-700 text-white"
-                    : "bg-indigo-600 hover:bg-indigo-700 text-white"
+                    ? "bg-red-600 hover:bg-red-700 text-white"
+                    : "bg-red-600 hover:bg-red-700 text-white"
                 }`}
                 onClick={closeNav}
               >
