@@ -22,7 +22,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full bg-white dark:bg-gray-900 py-12 md:py-24 px-4 sm:px-6 border-t border-gray-100 dark:border-gray-800"
+      className="w-full bg-white dark:bg-zinc-950 py-12 md:py-24 px-4 sm:px-6 border-t border-gray-100 dark:border-zinc-900"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-3 gap-8 md:gap-16 items-start">
@@ -41,14 +41,14 @@ const About = () => {
               <img
                 src={Headshot}
                 alt="Ahmad Hassan"
-                className="w-full h-auto rounded-2xl shadow-xl transform transition-transform duration-300 border-4 border-white dark:border-gray-800"
+                className="w-full h-auto rounded-2xl shadow-xl transform transition-transform duration-300 border-4 border-white dark:border-zinc-900"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-indigo-600/10 to-transparent rounded-2xl mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-b from-red-600/10 to-transparent rounded-2xl mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
 
             <div className="space-y-4 text-center md:text-left">
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Ahmad Hassan</h3>
-              <p className="text-indigo-600 dark:text-indigo-400 font-medium text-sm md:text-base">
+              <p className="text-red-600 dark:text-red-400 font-medium text-sm md:text-base">
                 AI Engineer & Full-Stack Developer
               </p>
               <motion.div className="flex justify-center md:justify-start gap-4" whileHover={{ scale: 1.05 }}>
@@ -104,11 +104,11 @@ const About = () => {
                   ].map((card, index) => (
                     <motion.div
                       key={index}
-                      className="p-6 md:p-8 bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700"
+                      className="p-6 md:p-8 bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 dark:border-zinc-800"
                       whileHover={{ y: -5 }}
                     >
                       <motion.div
-                        className="text-indigo-600 dark:text-indigo-400 text-2xl md:text-3xl mb-3 md:mb-4 inline-block p-2 md:p-3 rounded-full bg-indigo-50 dark:bg-gray-900"
+                        className="text-red-600 dark:text-red-400 text-2xl md:text-3xl mb-3 md:mb-4 inline-block p-2 md:p-3 rounded-full bg-red-50 dark:bg-zinc-800"
                         animate={{ rotate: [0, 10, -10, 0] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
@@ -120,7 +120,7 @@ const About = () => {
                       <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
                         {card.items.map((item, i) => (
                           <motion.li key={i} whileHover={{ x: 5 }} className="flex items-center gap-2 md:gap-3">
-                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                             {item}
                           </motion.li>
                         ))}
@@ -158,7 +158,7 @@ const About = () => {
                     transition={{ delay: item.delay, duration: 0.6 }}
                   >
                     <motion.div
-                      className="absolute left-0 top-1 -translate-x-1/2 w-4 h-4 md:w-5 md:h-5 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg z-10"
+                      className="absolute left-0 top-1 -translate-x-1/2 w-4 h-4 md:w-5 md:h-5 bg-red-600 rounded-full flex items-center justify-center shadow-lg z-10"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -170,7 +170,7 @@ const About = () => {
 
                     <div className="space-y-2 ml-6 md:ml-10 pt-1 md:pt-2">
                       <motion.div
-                        className="p-4 md:p-6 bg-white dark:bg-gray-800 rounded-lg md:rounded-xl shadow-xs hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
+                        className="p-4 md:p-6 bg-white dark:bg-zinc-900 rounded-lg md:rounded-xl shadow-xs hover:shadow-md transition-shadow border border-gray-100 dark:border-zinc-800"
                         whileHover={{ x: 5 }}
                       >
                         <h4 className="text-lg md:text-xl font-semibold dark:text-white mb-2 md:mb-3">
