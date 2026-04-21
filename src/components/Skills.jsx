@@ -26,16 +26,16 @@ const Skills = () => {
   }, [controls, isInView]);
 
   const skills = [
-    { name: "Python", icon: <SiPython className="text-blue-600 dark:text-blue-400" size={28} /> },
+    { name: "Python", icon: <SiPython className="text-red-600 dark:text-red-400" size={28} /> },
     { name: "TensorFlow & PyTorch", icon: <GiArtificialIntelligence className="text-orange-500 dark:text-orange-400" size={28} /> },
-    { name: "scikit-learn & Pandas", icon: <FaDatabase className="text-blue-400 dark:text-blue-300" size={28} /> },
-    { name: "React.js & TypeScript", icon: <FaReact className="text-blue-500 dark:text-blue-400" size={28} /> },
+    { name: "scikit-learn & Pandas", icon: <FaDatabase className="text-rose-500 dark:text-rose-400" size={28} /> },
+    { name: "React.js & TypeScript", icon: <FaReact className="text-red-500 dark:text-red-400" size={28} /> },
     { name: "JavaScript (ES6+)", icon: <SiJavascript className="text-yellow-400 dark:text-yellow-500" size={28} /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400 dark:text-sky-300" size={28} /> },
     { name: "Node.js & Express.js", icon: <FaNodeJs className="text-green-600 dark:text-green-500" size={28} /> },
     { name: "FastAPI", icon: <SiPython className="text-teal-500 dark:text-teal-400" size={28} /> },
     { name: "MongoDB", icon: <SiMongodb className="text-green-500 dark:text-green-400" size={28} /> },
-    { name: "MySQL & SQL Server", icon: <FaDatabase className="text-blue-600 dark:text-blue-400" size={28} /> },
+    { name: "MySQL & SQL Server", icon: <FaDatabase className="text-red-600 dark:text-red-400" size={28} /> },
     { name: "Git & GitHub", icon: <FaGithub className="text-gray-800 dark:text-gray-300" size={28} /> },
     { name: "Vercel & Netlify", icon: <BsTerminal className="text-gray-900 dark:text-gray-100" size={28} /> },
   ];
@@ -60,8 +60,8 @@ const Skills = () => {
       ref={ref}
       className={`w-full py-20 px-4 sm:px-6 overflow-hidden ${
         isDark
-          ? "bg-gradient-to-b from-gray-900 to-gray-800"
-          : "bg-gradient-to-b from-gray-50 to-blue-50"
+          ? "bg-gradient-to-b from-zinc-950 to-zinc-900"
+          : "bg-gradient-to-b from-gray-50 to-red-50"
       } transition-colors duration-300`}
     >
       <div className="max-w-7xl mx-auto">
@@ -78,7 +78,7 @@ const Skills = () => {
             <span className={isDark ? "text-white" : "text-gray-800"}>
               Technical{" "}
             </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-500 dark:from-red-500 dark:to-rose-400">
               Expertise
             </span>
           </motion.h2>
@@ -124,8 +124,8 @@ const Skills = () => {
                 <motion.div
                   className={`w-full h-full rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 border ${
                     isDark
-                      ? "bg-gray-800 border-gray-700 hover:border-blue-400"
-                      : "bg-white border-gray-200 hover:border-blue-500"
+                      ? "bg-zinc-900 border-zinc-800 hover:border-red-500"
+                      : "bg-white border-gray-200 hover:border-red-500"
                   }`}
                   whileHover={{ y: -10, scale: 1.05 }}
                   variants={itemVariants}
@@ -166,8 +166,8 @@ const Skills = () => {
                 <motion.div
                   className={`w-full h-full rounded-xl p-4 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 border ${
                     isDark
-                      ? "bg-gray-800 border-gray-700 hover:border-blue-400"
-                      : "bg-white border-gray-200 hover:border-blue-500"
+                      ? "bg-zinc-900 border-zinc-800 hover:border-red-500"
+                      : "bg-white border-gray-200 hover:border-red-500"
                   }`}
                   whileHover={{ y: -5 }}
                   variants={itemVariants}
@@ -190,12 +190,12 @@ const Skills = () => {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
             className={`absolute -left-20 -top-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-              isDark ? "bg-blue-900" : "bg-blue-200"
+              isDark ? "bg-red-900" : "bg-red-200"
             }`}
           />
           <div
             className={`absolute -right-20 -bottom-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-              isDark ? "bg-purple-900" : "bg-purple-200"
+              isDark ? "bg-rose-900" : "bg-rose-200"
             }`}
           />
         </div>
