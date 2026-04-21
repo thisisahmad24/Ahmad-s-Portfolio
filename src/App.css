@@ -40,7 +40,7 @@
 }
 
 .typewriter {
-  border-right: 2px solid theme('colors.blue.400');
+  border-right: 2px solid theme('colors.red.500');
   white-space: nowrap;
   overflow: hidden;
   animation: 
@@ -55,7 +55,7 @@
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: theme('colors.blue.400'); }
+  50% { border-color: theme('colors.red.500'); }
 }
 
 /* Custom scrollbar */
@@ -65,16 +65,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.slate.800');
+  background: theme('colors.zinc.900');
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.blue.600');
+  background: theme('colors.red.700');
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.blue.500');
+  background: theme('colors.red.600');
 }
 
 /* In your global CSS */

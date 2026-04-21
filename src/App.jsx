@@ -12,7 +12,7 @@ import ContactFooter from "./components/ContactFooter";
 const App = () => {
   return (
     <ThemeProvider>
-      <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 min-h-screen">
+      <div className="bg-white dark:bg-zinc-950 text-gray-900 dark:text-gray-200 font-sans transition-colors duration-300 min-h-screen">
         <Navbar />
 
         <main className="pt-24">
