@@ -49,11 +49,11 @@ const Hero = () => {
   };
 
   const floatingTechIcons = [
-    { icon: <SiReact className="text-blue-500 dark:text-blue-400" />, size: "w-10 h-10", delay: 0 },
+    { icon: <SiReact className="text-red-500 dark:text-red-400" />, size: "w-10 h-10", delay: 0 },
     { icon: <SiJavascript className="text-yellow-400" />, size: "w-10 h-10", delay: 0.3 },
     { icon: <SiNodedotjs className="text-green-500" />, size: "w-10 h-10", delay: 0.6 },
     { icon: <SiMongodb className="text-green-400" />, size: "w-10 h-10", delay: 0.9 },
-    { icon: <SiPostgresql className="text-blue-400" />, size: "w-10 h-10", delay: 1.2 },
+    { icon: <SiPostgresql className="text-red-400" />, size: "w-10 h-10", delay: 1.2 },
     { icon: <SiTailwindcss className="text-sky-400" />, size: "w-10 h-10", delay: 1.5 },
     { icon: <SiFigma className="text-pink-400" />, size: "w-10 h-10", delay: 1.8 }
   ];
@@ -63,25 +63,25 @@ const Hero = () => {
       icon: <FaCode />,
       title: "Agentic AI Systems",
       description: "Developing intelligent workflows using LLMs",
-      color: "text-blue-500 dark:text-blue-400"
+      color: "text-red-500 dark:text-red-400"
     },
     {
       icon: <FaServer />,
       title: "Backend & APIs",
       description: "Building robust logic with Python & FastAPI",
-      color: "text-emerald-500 dark:text-emerald-400"
+      color: "text-rose-500 dark:text-rose-400"
     },
     {
       icon: <FaLaptopCode />,
       title: "Full-Stack Web",
       description: "Creating full-stack apps using React + Tailwind",
-      color: "text-indigo-500 dark:text-indigo-400"
+      color: "text-red-600 dark:text-red-500"
     },
     {
       icon: <FaPalette />,
       title: "Scalable Systems",
       description: "Designing reliable & optimized data pipelines",
-      color: "text-pink-500 dark:text-pink-400"
+      color: "text-orange-500 dark:text-orange-400"
     }
   ];
 
@@ -91,7 +91,7 @@ const Hero = () => {
       ref={ref}
       className={`relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-x-hidden
         bg-gradient-to-br from-slate-100 via-white to-slate-100
-        dark:from-slate-900 dark:via-slate-800 dark:to-slate-900
+        dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950
         transition-colors duration-300`}
     >
       {/* Floating icons */}
@@ -131,7 +131,7 @@ const Hero = () => {
           {/* Name */}
           <motion.div variants={fadeUp}>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 to-rose-500 dark:from-red-500 dark:to-rose-400 bg-clip-text text-transparent">
                 Hi, I'm Ahmad Hassan
               </span>
             </h1>
@@ -140,8 +140,8 @@ const Hero = () => {
           {/* Title */}
           <motion.div variants={fadeUp}>
             <h2 className="text-sm sm:text-lg lg:text-xl text-gray-800 dark:text-gray-200 mb-6 font-medium">
-              <span className="inline-block bg-blue-100/50 dark:bg-blue-600/20 px-4 py-2 rounded-full border border-blue-200 dark:border-blue-500/30">
-                <span className="text-blue-600 dark:text-blue-400 animate-pulse mr-2">❯</span>
+              <span className="inline-block bg-red-100/50 dark:bg-red-900/20 px-4 py-2 rounded-full border border-red-200 dark:border-red-500/30">
+                <span className="text-red-600 dark:text-red-400 animate-pulse mr-2">❯</span>
                 AI Engineer • Full-Stack Developer
               </span>
             </h2>
@@ -150,7 +150,7 @@ const Hero = () => {
           {/* Description */}
           <motion.div variants={fadeUp}>
             <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-700 dark:text-gray-300 mb-4 max-w-3xl mx-auto leading-relaxed">
-              Building <span className="text-blue-600 dark:text-blue-400">intelligent systems</span>, not just interfaces.
+              Building <span className="text-red-600 dark:text-red-400">intelligent systems</span>, not just interfaces.
             </p>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
               Designing the intelligence behind modern software.
@@ -163,7 +163,7 @@ const Hero = () => {
               <motion.div
                 key={i}
                 whileHover={{ y: -6, scale: 1.04 }}
-                className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-blue-500/10 transition-all"
+                className="bg-white/70 dark:bg-zinc-900/70 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 dark:border-red-900/50 shadow-lg hover:shadow-red-500/10 transition-all"
               >
                 <div className={`${card.color} mb-3 text-3xl`}>{card.icon}</div>
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-1">{card.title}</h3>
@@ -177,14 +177,14 @@ const Hero = () => {
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-red-600 to-rose-500 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all"
             >
               View My Projects <FaArrowDown className="ml-3 animate-bounce" />
             </motion.a>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center justify-center border-2 border-blue-500 text-blue-600 dark:text-blue-400 font-medium py-3 px-8 rounded-full hover:bg-blue-50 dark:hover:bg-slate-800 transition-all"
+              className="inline-flex items-center justify-center border-2 border-red-500 text-red-600 dark:text-red-400 font-medium py-3 px-8 rounded-full hover:bg-red-50 dark:hover:bg-zinc-900 transition-all"
             >
               Let’s Connect
             </motion.a>
@@ -196,7 +196,7 @@ const Hero = () => {
               href="https://github.com/thisisahmad24"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/70 dark:bg-slate-800/70 hover:scale-110 transition-all shadow-md hover:shadow-lg border dark:border-slate-700/50"
+              className="p-3 rounded-full bg-white/70 dark:bg-zinc-900/70 hover:scale-110 transition-all shadow-md hover:shadow-lg border dark:border-red-900/50"
             >
               <FaGithub className="text-2xl text-gray-800 dark:text-gray-200" />
             </a>
@@ -204,7 +204,7 @@ const Hero = () => {
               href="https://www.linkedin.com/in/ahmad-hassan-ai-engineer"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/70 dark:bg-slate-800/70 hover:scale-110 transition-all shadow-md hover:shadow-lg border dark:border-slate-700/50"
+              className="p-3 rounded-full bg-white/70 dark:bg-zinc-900/70 hover:scale-110 transition-all shadow-md hover:shadow-lg border dark:border-red-900/50"
             >
               <FaLinkedin className="text-2xl text-gray-800 dark:text-gray-200" />
             </a>
