@@ -16,7 +16,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-gray-50 dark:bg-gray-900 py-16 px-6">
+    <section id="contact" className="bg-gray-50 dark:bg-zinc-950 py-16 px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Title and Tagline */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -35,7 +35,7 @@ const Contact = () => {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 max-w-lg mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
+            className="space-y-6 max-w-lg mx-auto bg-white dark:bg-zinc-900 p-8 rounded-xl shadow-md border border-gray-200 dark:border-zinc-800"
           >
             <input
               type="text"
@@ -44,7 +44,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+               className="w-full p-3 border border-gray-300 dark:border-zinc-700 rounded-md dark:bg-zinc-950 dark:text-white focus:ring-2 focus:ring-red-500"
             />
             <input
               type="email"
@@ -53,7 +53,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+               className="w-full p-3 border border-gray-300 dark:border-zinc-700 rounded-md dark:bg-zinc-950 dark:text-white focus:ring-2 focus:ring-red-500"
             />
             <textarea
               name="message"
@@ -62,11 +62,11 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows="4"
-              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+               className="w-full p-3 border border-gray-300 dark:border-zinc-700 rounded-md dark:bg-zinc-950 dark:text-white focus:ring-2 focus:ring-red-500"
             ></textarea>
             <button
               type="submit"
-              className="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition font-medium"
+              className="w-full py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition font-medium"
             >
               Send Message
             </button>
@@ -79,7 +79,7 @@ const Contact = () => {
             href="https://www.linkedin.com/in/ahmad-hassan-ai-engineer"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            className="text-3xl text-gray-900 dark:text-white hover:text-red-600 dark:hover:text-red-400 transition"
           >
             <FaLinkedin />
           </a>
@@ -87,13 +87,13 @@ const Contact = () => {
             href="https://github.com/thisisahmad24"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            className="text-3xl text-gray-900 dark:text-white hover:text-red-600 dark:hover:text-red-400 transition"
           >
             <FaGithub />
           </a>
           <a
             href="mailto:thisisahmad07@gmail.com"
-            className="text-3xl text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            className="text-3xl text-gray-900 dark:text-white hover:text-red-600 dark:hover:text-red-400 transition"
           >
             <FaEnvelope />
           </a>
