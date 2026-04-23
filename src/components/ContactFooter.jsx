@@ -144,6 +144,9 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <p className={`text-sm mb-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    Please feel free to submit your professional inquiries or questions via the form below.
+                  </p>
                   {error && (
                     <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-500 text-sm rounded-lg">
                       {error}
