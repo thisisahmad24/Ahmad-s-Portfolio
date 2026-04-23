@@ -180,7 +180,7 @@ const ProjectCard = ({ project, index, isDark }) => (
         <img 
           src={project.image} 
           alt={project.title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" 
         />
       ) : (
         <div className={`text-4xl font-bold ${isDark ? "text-gray-600" : "text-gray-300"}`}>
