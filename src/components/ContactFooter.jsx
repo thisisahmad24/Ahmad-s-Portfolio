@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { 
-  FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp, FaPaperPlane, FaTwitter, FaArrowUp, FaMapMarkerAlt 
+  FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp, FaPaperPlane, FaInstagram, FaArrowUp, FaMapMarkerAlt 
 } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,7 +11,7 @@ const SOCIAL_LINKS = [
   { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/ahmad-hassan-ai-engineer", label: "LinkedIn" },
   { icon: <FaGithub />, href: "https://github.com/thisisahmad24", label: "GitHub" },
   { icon: <FaWhatsapp />, href: "https://wa.me/923114512268", label: "WhatsApp" },
-  { icon: <FaTwitter />, href: "https://twitter.com/ahmadh07", label: "Twitter" }
+  { icon: <FaInstagram />, href: "https://www.instagram.com/404.dimension/", label: "Instagram" }
 ];
 
 const NAV_LINKS = [
@@ -93,7 +93,12 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                 </div>
                 <div>
                   <p className={`text-xs font-bold uppercase tracking-widest ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Email Me</p>
-                  <p className={`text-lg font-medium ${isDark ? 'text-gray-200' : 'text-gray-800'}`}>thisisahmad07@gmail.com</p>
+                  <a 
+                    href="mailto:thisisahmad07@gmail.com" 
+                    className={`text-lg font-medium hover:text-red-500 transition-colors ${isDark ? 'text-gray-200' : 'text-gray-800'}`}
+                  >
+                    thisisahmad07@gmail.com
+                  </a>
                 </div>
               </div>
 
