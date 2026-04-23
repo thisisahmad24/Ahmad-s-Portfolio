@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaPalette, FaGraduationCap, FaBriefcase } from "react-icons/fa";
+import { FaLaptopCode, FaPalette, FaGraduationCap, FaBriefcase, FaAward, FaCertificate } from "react-icons/fa";
 import Headshot from "../images/Ahmad.png";
+import GitHubCalendar from 'react-github-calendar';
 
 const About = () => {
   const timelineItems = [
@@ -17,6 +18,21 @@ const About = () => {
       icon: <FaGraduationCap />,
       delay: 0.4,
     },
+  ];
+
+  const achievements = [
+    {
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      icon: <FaCertificate />,
+    },
+    {
+      title: "AI Specialist Recognition",
+      issuer: "DeepLearning.AI",
+      date: "2024",
+      icon: <FaAward />,
+    }
   ];
 
   return (
@@ -131,6 +147,8 @@ const About = () => {
               </div>
             </motion.div>
 
+            </motion.div>
+
             {/* Timeline Section */}
             <motion.div
               className="relative"
@@ -163,9 +181,9 @@ const About = () => {
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
-                      <motion.div className="text-white text-xs md:text-sm" whileHover={{ scale: 1.1 }}>
+                      <div className="text-white text-xs md:text-sm">
                         {item.icon}
-                      </motion.div>
+                      </div>
                     </motion.div>
 
                     <div className="space-y-2 ml-6 md:ml-10 pt-1 md:pt-2">
@@ -176,20 +194,70 @@ const About = () => {
                         <h4 className="text-lg md:text-xl font-semibold dark:text-white mb-2 md:mb-3">
                           {item.title}
                         </h4>
-                        <motion.p
-                          className="text-sm md:text-base text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: item.delay + 0.2 }}
-                        >
+                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed">
                           {item.content}
-                        </motion.p>
+                        </p>
                       </motion.div>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
+
+            {/* GitHub Contributions */}
+            <motion.div
+              className="mt-16 p-8 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-gray-200 dark:border-zinc-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                  <h3 className="text-xl font-bold dark:text-white">Neural Contributions</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">TRACKING ACTIVITY IN REAL-TIME...</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+                  <span className="text-xs font-mono text-red-500">SYSTEM: ACTIVE</span>
+                </div>
+              </div>
+              
+              <div className="flex justify-center overflow-x-auto pb-2 scrollbar-hide">
+                <GitHubCalendar 
+                  username="thisisahmad24" 
+                  colorScheme={true ? 'dark' : 'light'} 
+                  theme={{
+                    dark: ['#18181b', '#450a0a', '#7f1d1d', '#b91c1c', '#ef4444'],
+                  }}
+                  fontSize={12}
+                  blockSize={12}
+                />
+              </div>
+            </motion.div>
+
+            {/* Achievements Grid */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold dark:text-white mb-8">Achievements & Uplinks</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {achievements.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="p-6 bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 hover:border-red-500/50 transition-all group"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg group-hover:scale-110 transition-transform">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-bold dark:text-white">{item.title}</h4>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{item.issuer} • {item.date}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

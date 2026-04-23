@@ -139,12 +139,13 @@ const Hero = () => {
 
           {/* Title */}
           <motion.div variants={fadeUp}>
-            <h2 className="text-sm sm:text-lg lg:text-xl text-gray-800 dark:text-gray-200 mb-6 font-medium">
-              <span className="inline-block bg-red-100/50 dark:bg-red-900/20 px-4 py-2 rounded-full border border-red-200 dark:border-red-500/30">
-                <span className="text-red-600 dark:text-red-400 animate-pulse mr-2">❯</span>
-                AI Engineer • Full-Stack Developer
-              </span>
-            </h2>
+            <div className="text-sm sm:text-lg lg:text-xl text-gray-800 dark:text-gray-200 mb-6 font-mono">
+              <div className="inline-block bg-red-100/50 dark:bg-red-900/20 px-4 py-2 rounded-lg border border-red-200 dark:border-red-500/30">
+                <span className="text-red-600 dark:text-red-400 mr-2">❯</span>
+                <span className="text-zinc-600 dark:text-zinc-400">INITIALIZING: </span>
+                <RoleSwitcher />
+              </div>
+            </div>
           </motion.div>
 
           {/* Description */}
@@ -212,6 +213,42 @@ const Hero = () => {
         </motion.div>
       </div>
     </section>
+  );
+};
+
+const RoleSwitcher = () => {
+  const roles = ["AI Engineer", "Full-Stack Developer", "ML Specialist", "System Architect"];
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const fullText = roles[currentRole];
+      setDisplayText(isDeleting 
+        ? fullText.substring(0, displayText.length - 1)
+        : fullText.substring(0, displayText.length + 1)
+      );
+
+      if (!isDeleting && displayText === fullText) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayText === "") {
+        setIsDeleting(false);
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+      }
+
+      setTypingSpeed(isDeleting ? 75 : 150);
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, currentRole, roles, typingSpeed]);
+
+  return (
+    <span className="text-red-600 dark:text-red-400 font-bold border-r-2 border-red-600 dark:border-red-400 pr-1 animate-pulse">
+      {displayText}
+    </span>
   );
 };
 
