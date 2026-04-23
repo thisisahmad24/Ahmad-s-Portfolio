@@ -10,26 +10,6 @@ import JavaGuiProjectImg from "../images/java-gui-project.jpg";
 const professionalProjects = [
   {
     id: 1,
-    title: "Helmet Challan System",
-    description: "An AI/Computer Vision system built in Python to detect motorcyclists without helmets and issue automated challans.",
-    tech: ["Python", "Computer Vision", "Machine Learning"],
-    github: "https://github.com/thisisahmad24/helmet-challan-system",
-    demo: "https://github.com/thisisahmad24/helmet-challan-system",
-    year: 2024,
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Prism Nexus Glow",
-    description: "A modern, interactive frontend web application built using TypeScript and modern interactive UI libraries.",
-    tech: ["TypeScript", "React", "Frontend"],
-    github: "https://github.com/thisisahmad24/prism-nexus-glow",
-    demo: "https://github.com/thisisahmad24/prism-nexus-glow",
-    year: 2024,
-    featured: true,
-  },
-  {
-    id: 3,
     title: "Personal Developer Portfolio",
     description: "A highly interactive, malware/cyberpunk themed personal portfolio built with React and Tailwind CSS.",
     tech: ["JavaScript", "React", "Tailwind CSS"],
@@ -40,7 +20,7 @@ const professionalProjects = [
     image: PortfolioProjectImg,
   },
   {
-    id: 4,
+    id: 2,
     title: "QA Automation Portfolio",
     description: "A collection of robust automated QA test scripts testing various web applications using Java test runners.",
     tech: ["Java", "QA Automation", "Testing"],
@@ -51,7 +31,7 @@ const professionalProjects = [
     image: QaProjectImg,
   },
   {
-    id: 5,
+    id: 3,
     title: "Python Engineering Journey",
     description: "A comprehensive repository showcasing various Python engineering scripts, algorithms, and backend architectures.",
     tech: ["Python", "Algorithms", "Backend"],
@@ -62,7 +42,7 @@ const professionalProjects = [
     image: PythonProjectImg,
   },
   {
-    id: 6,
+    id: 4,
     title: "Java GUI Phonebook",
     description: "A desktop GUI application built in Java for managing and storing telephone contacts in a local database.",
     tech: ["Java", "Desktop App", "GUI"],
