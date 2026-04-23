@@ -14,8 +14,6 @@ const professionalProjects = [
     description: "A highly interactive, malware/cyberpunk themed personal portfolio built with React and Tailwind CSS.",
     tech: ["JavaScript", "React", "Tailwind CSS"],
     github: "https://github.com/thisisahmad24/Ahmad-s-Portfolio",
-    demo: "https://ahmad-s-portfolio-ochre.vercel.app",
-    year: 2024,
     featured: true,
     image: PortfolioProjectImg,
   },
@@ -25,9 +23,7 @@ const professionalProjects = [
     description: "A collection of robust automated QA test scripts testing various web applications using Java test runners.",
     tech: ["Java", "QA Automation", "Testing"],
     github: "https://github.com/thisisahmad24/qa-automation-portfolio",
-    demo: "https://github.com/thisisahmad24/qa-automation-portfolio",
-    year: 2024,
-    featured: false,
+    featured: true,
     image: QaProjectImg,
   },
   {
@@ -36,9 +32,7 @@ const professionalProjects = [
     description: "A comprehensive repository showcasing various Python engineering scripts, algorithms, and backend architectures.",
     tech: ["Python", "Algorithms", "Backend"],
     github: "https://github.com/thisisahmad24/python-engineering-journey",
-    demo: "https://github.com/thisisahmad24/python-engineering-journey",
-    year: 2024,
-    featured: false,
+    featured: true,
     image: PythonProjectImg,
   },
   {
@@ -47,9 +41,7 @@ const professionalProjects = [
     description: "A desktop GUI application built in Java for managing and storing telephone contacts in a local database.",
     tech: ["Java", "Desktop App", "GUI"],
     github: "https://github.com/thisisahmad24/Java-GUI-Phonebook",
-    demo: "https://github.com/thisisahmad24/Java-GUI-Phonebook",
-    year: 2024,
-    featured: false,
+    featured: true,
     image: JavaGuiProjectImg,
   },
 ];
@@ -176,10 +168,7 @@ const ProjectCard = ({ project, index, isDark }) => (
     </div>
 
     <div className="p-6 flex-1 flex flex-col">
-      <div className="flex justify-between items-start mb-3">
-        <span className={`text-sm font-medium ${isDark ? "text-red-400" : "text-red-600"}`}>
-          {project.year}
-        </span>
+      <div className="flex justify-end items-start mb-3">
         {project.featured && (
           <span
             className={`px-2 py-1 text-xs font-bold rounded ${
@@ -218,23 +207,12 @@ const ProjectCard = ({ project, index, isDark }) => (
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg ${
+            className={`w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg ${
               isDark ? "bg-zinc-800 hover:bg-zinc-700" : "bg-gray-100 hover:bg-gray-200"
             } transition-colors`}
           >
             <FiGithub className="w-5 h-5" />
-            <span className="text-sm font-medium">Code</span>
-          </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg ${
-              isDark ? "bg-red-600 hover:bg-red-700" : "bg-red-600 hover:bg-red-700"
-            } text-white transition-colors`}
-          >
-            <FiExternalLink className="w-5 h-5" />
-            <span className="text-sm font-medium">Demo</span>
+            <span className="text-sm font-medium">View Code</span>
           </a>
         </div>
       </div>
