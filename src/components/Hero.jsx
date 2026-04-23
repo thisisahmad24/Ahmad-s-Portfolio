@@ -139,10 +139,11 @@ const Hero = () => {
 
           {/* Title */}
           <motion.div variants={fadeUp}>
-            <div className="text-sm sm:text-lg lg:text-xl text-gray-800 dark:text-gray-200 mb-6 font-mono">
-              <div className="inline-block bg-red-100/50 dark:bg-red-900/20 px-4 py-2 rounded-lg border border-red-200 dark:border-red-500/30">
+            <div className="text-xs sm:text-base md:text-lg lg:text-xl text-gray-800 dark:text-gray-200 mb-6 font-mono">
+              <div className="inline-block bg-red-100/50 dark:bg-red-900/20 px-3 sm:px-4 py-2 rounded-lg border border-red-200 dark:border-red-500/30 whitespace-nowrap">
                 <span className="text-red-600 dark:text-red-400 mr-2">❯</span>
-                <span className="text-zinc-600 dark:text-zinc-400">INITIALIZING: </span>
+                <span className="text-zinc-600 dark:text-zinc-400 hidden sm:inline">INITIALIZING: </span>
+                <span className="text-zinc-600 dark:text-zinc-400 sm:hidden">AI: </span>
                 <RoleSwitcher />
               </div>
             </div>

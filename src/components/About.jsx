@@ -227,16 +227,18 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="flex justify-center overflow-x-auto pb-2 scrollbar-hide">
-                <GitHubCalendar 
-                  username="thisisahmad24" 
-                  colorScheme={true ? 'dark' : 'light'} 
-                  theme={{
-                    dark: ['#18181b', '#450a0a', '#7f1d1d', '#b91c1c', '#ef4444'],
-                  }}
-                  fontSize={12}
-                  blockSize={12}
-                />
+              <div className="flex justify-start md:justify-center overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+                <div className="min-w-[700px] sm:min-w-0">
+                  <GitHubCalendar 
+                    username="thisisahmad24" 
+                    colorScheme={true ? 'dark' : 'light'} 
+                    theme={{
+                      dark: ['#18181b', '#450a0a', '#7f1d1d', '#b91c1c', '#ef4444'],
+                    }}
+                    fontSize={12}
+                    blockSize={12}
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -247,16 +249,16 @@ const About = () => {
                 {achievements.map((item, index) => (
                   <motion.div
                     key={index}
-                    className="p-6 bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 hover:border-red-500/50 transition-all group"
+                    className="p-4 sm:p-6 bg-white dark:bg-zinc-900 rounded-xl border border-gray-100 dark:border-zinc-800 hover:border-red-500/50 transition-all group"
                     whileHover={{ y: -5 }}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg group-hover:scale-110 transition-transform">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="p-2 sm:p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg group-hover:scale-110 transition-transform">
                         {item.icon}
                       </div>
-                      <div>
-                        <h4 className="font-bold dark:text-white">{item.title}</h4>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{item.issuer} • {item.date}</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-bold dark:text-white text-sm sm:text-base truncate">{item.title}</h4>
+                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">{item.issuer} • {item.date}</p>
                       </div>
                     </div>
                   </motion.div>

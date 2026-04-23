@@ -65,7 +65,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className={`group relative p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
+              className={`group relative p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
                 isDark
                   ? "bg-zinc-900 hover:bg-zinc-800"
                   : "bg-white hover:bg-gray-50"
@@ -94,7 +94,7 @@ const Testimonials = () => {
 
               <div className="pt-12 pb-8">
                 <p
-                  className={`mb-6 text-lg leading-relaxed ${
+                  className={`mb-6 text-base sm:text-lg leading-relaxed ${
                     isDark ? "text-gray-300" : "text-gray-700"
                   }`}
                 >

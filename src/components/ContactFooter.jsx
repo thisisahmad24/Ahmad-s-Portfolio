@@ -227,7 +227,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
         <div className={`pt-12 border-t flex flex-col md:flex-row justify-between items-start gap-12 ${isDark ? 'border-zinc-800' : 'border-gray-200'}`}>
           
           {/* Brand & Socials */}
-          <div className="max-w-xs">
+          <div className="max-w-xs w-full text-center md:text-left flex flex-col items-center md:items-start">
             <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               {copyrightName}<span className="text-red-600">.</span>
             </h3>
@@ -254,8 +254,8 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
           </div>
 
           {/* Quick Links */}
-          <div className="grid grid-cols-2 gap-12 sm:gap-24">
-            <div>
+          <div className="grid grid-cols-2 gap-12 sm:gap-24 w-full md:w-auto text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start">
               <h4 className={`text-xs font-bold uppercase tracking-[0.2em] mb-6 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Navigation</h4>
               <ul className="space-y-4">
                 {NAV_LINKS.map((link, i) => (
@@ -272,7 +272,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-center md:items-start">
               <h4 className={`text-xs font-bold uppercase tracking-[0.2em] mb-6 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Utilities</h4>
               <Link
                 to="home"
