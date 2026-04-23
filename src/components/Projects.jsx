@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
+import PythonProjectImg from "../images/python-project.jpg";
 
 const professionalProjects = [
   {
@@ -53,6 +54,7 @@ const professionalProjects = [
     demo: "https://github.com/thisisahmad24/python-engineering-journey",
     year: 2024,
     featured: false,
+    image: PythonProjectImg,
   },
   {
     id: 6,
@@ -172,11 +174,19 @@ const ProjectCard = ({ project, index, isDark }) => (
     } transition-all`}
   >
     <div
-      className={`h-48 ${isDark ? "bg-zinc-800" : "bg-gray-100"} flex items-center justify-center`}
+      className={`h-48 ${isDark ? "bg-zinc-800" : "bg-gray-100"} flex items-center justify-center overflow-hidden`}
     >
-      <div className={`text-4xl font-bold ${isDark ? "text-gray-600" : "text-gray-300"}`}>
-        {project.id.toString().padStart(2, "0")}
-      </div>
+      {project.image ? (
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+        />
+      ) : (
+        <div className={`text-4xl font-bold ${isDark ? "text-gray-600" : "text-gray-300"}`}>
+          {project.id.toString().padStart(2, "0")}
+        </div>
+      )}
     </div>
 
     <div className="p-6 flex-1 flex flex-col">
