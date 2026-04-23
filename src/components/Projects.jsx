@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import PythonProjectImg from "../images/python-project.jpg";
+import QaProjectImg from "../images/qa-project.jpg";
 
 const professionalProjects = [
   {
@@ -44,6 +45,7 @@ const professionalProjects = [
     demo: "https://github.com/thisisahmad24/qa-automation-portfolio",
     year: 2024,
     featured: false,
+    image: QaProjectImg,
   },
   {
     id: 5,
