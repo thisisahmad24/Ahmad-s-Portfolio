@@ -4,6 +4,7 @@ import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import PythonProjectImg from "../images/python-project.jpg";
 import QaProjectImg from "../images/qa-project.jpg";
+import PortfolioProjectImg from "../images/portfolio-project.png";
 
 const professionalProjects = [
   {
@@ -35,6 +36,7 @@ const professionalProjects = [
     demo: "https://ahmad-s-portfolio-ochre.vercel.app",
     year: 2024,
     featured: true,
+    image: PortfolioProjectImg,
   },
   {
     id: 4,
