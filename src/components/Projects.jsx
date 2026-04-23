@@ -5,6 +5,7 @@ import { useTheme } from "../context/ThemeContext";
 import PythonProjectImg from "../images/python-project.jpg";
 import QaProjectImg from "../images/qa-project.jpg";
 import PortfolioProjectImg from "../images/portfolio-project.png";
+import JavaGuiProjectImg from "../images/java-gui-project.jpg";
 
 const professionalProjects = [
   {
@@ -69,6 +70,7 @@ const professionalProjects = [
     demo: "https://github.com/thisisahmad24/Java-GUI-Phonebook",
     year: 2024,
     featured: false,
+    image: JavaGuiProjectImg,
   },
 ];
 
