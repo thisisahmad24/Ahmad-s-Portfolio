@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaLaptopCode, FaPalette, FaGraduationCap, FaBriefcase, FaAward, FaCertificate } from "react-icons/fa";
 import Headshot from "../images/Ahmad.png";
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
 
 const About = () => {
   const timelineItems = [
@@ -147,7 +147,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            </motion.div>
 
             {/* Timeline Section */}
             <motion.div
