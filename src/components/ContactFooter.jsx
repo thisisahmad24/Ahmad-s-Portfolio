@@ -149,14 +149,14 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                       <label className={`text-xs font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Name</label>
                       <input
                         type="text"
-                        placeholder="John Doe"
+                        placeholder="Your Full Name"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         required
                         className={`w-full px-4 py-3 rounded-xl outline-none transition-all border ${
                           isDark 
-                            ? 'bg-zinc-950 border-zinc-800 focus:border-red-500 text-white' 
-                            : 'bg-gray-50 border-gray-200 focus:border-red-600 text-gray-900'
+                            ? 'bg-zinc-950 border-zinc-800 focus:border-red-500 text-white placeholder:text-zinc-600' 
+                            : 'bg-gray-50 border-gray-200 focus:border-red-600 text-gray-900 placeholder:text-zinc-400'
                         }`}
                       />
                     </div>
@@ -164,14 +164,14 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                       <label className={`text-xs font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Email</label>
                       <input
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="Your Email Address"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         required
                         className={`w-full px-4 py-3 rounded-xl outline-none transition-all border ${
                           isDark 
-                            ? 'bg-zinc-950 border-zinc-800 focus:border-red-500 text-white' 
-                            : 'bg-gray-50 border-gray-200 focus:border-red-600 text-gray-900'
+                            ? 'bg-zinc-950 border-zinc-800 focus:border-red-500 text-white placeholder:text-zinc-600' 
+                            : 'bg-gray-50 border-gray-200 focus:border-red-600 text-gray-900 placeholder:text-zinc-400'
                         }`}
                       />
                     </div>
@@ -179,15 +179,15 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                   <div className="space-y-2">
                     <label className={`text-xs font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Message</label>
                     <textarea
-                      placeholder="Tell me about your project..."
+                      placeholder="How can I help you?"
                       rows="4"
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       required
                       className={`w-full px-4 py-3 rounded-xl outline-none transition-all border resize-none ${
                         isDark 
-                          ? 'bg-zinc-950 border-zinc-800 focus:border-red-500 text-white' 
-                          : 'bg-gray-50 border-gray-200 focus:border-red-600 text-gray-900'
+                          ? 'bg-zinc-950 border-zinc-800 focus:border-red-500 text-white placeholder:text-zinc-600' 
+                          : 'bg-gray-50 border-gray-200 focus:border-red-600 text-gray-900 placeholder:text-zinc-400'
                       }`}
                     />
                   </div>
