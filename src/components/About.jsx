@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaPalette, FaGraduationCap, FaBriefcase, FaAward, FaCertificate } from "react-icons/fa";
+import { FaLaptopCode, FaPalette, FaGraduationCap, FaBriefcase, FaAward, FaCertificate, FaCode } from "react-icons/fa";
 import Headshot from "../images/Ahmad.png";
 import { GitHubCalendar } from 'react-github-calendar';
 
@@ -22,16 +22,22 @@ const About = () => {
 
   const achievements = [
     {
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "2024",
+      title: "Building with Artificial Intelligence",
+      issuer: "Saylor Academy",
+      date: "August 2025",
+      icon: <FaAward />,
+    },
+    {
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      date: "August 2025",
       icon: <FaCertificate />,
     },
     {
-      title: "AI Specialist Recognition",
-      issuer: "DeepLearning.AI",
-      date: "2024",
-      icon: <FaAward />,
+      title: "Core Java Programming",
+      issuer: "MindLuster",
+      date: "April 2025",
+      icon: <FaCode />,
     }
   ];
 
