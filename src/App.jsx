@@ -15,7 +15,7 @@ const App = () => {
       <div className="bg-white dark:bg-zinc-950 text-gray-900 dark:text-gray-200 font-sans transition-colors duration-300 min-h-screen">
         <Navbar />
 
-        <main className="pt-24">
+        <main>
           {/* Hero / Home Section */}
           <Hero />
 

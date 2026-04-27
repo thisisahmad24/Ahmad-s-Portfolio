@@ -16,13 +16,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-gray-50 dark:bg-zinc-950 py-16 px-6">
-      <div className="max-w-7xl mx-auto text-center">
+    <section id="contact" className="bg-gray-50 dark:bg-zinc-950 py-16 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto text-center">
         {/* Title and Tagline */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
           Let’s Connect and Collaborate
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
           I’m always open to discussing new projects, creative ideas, or opportunities 
           to be part of your vision. Feel free to send a message — I’ll get back to you soon!
         </p>
@@ -100,7 +100,7 @@ const Contact = () => {
         </div>
 
         {/* Additional Line */}
-        <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+        <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 break-words">
           0311-4512268 • thisisahmad07@gmail.com
           <br />
           102 Ali Block, Iteffaq Town, Lahore

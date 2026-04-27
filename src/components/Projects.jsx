@@ -59,15 +59,15 @@ const Projects = () => {
     : professionalProjects;
 
   return (
-    <section id="projects" className={`w-full py-24 ${isDark ? "bg-zinc-950" : "bg-gray-50"}`}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className={`w-full py-16 sm:py-20 lg:py-24 scroll-mt-20 ${isDark ? "bg-zinc-950" : "bg-gray-50"}`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="mb-20 text-center">
+        <div className="mb-10 sm:mb-14 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}
+            className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}
           >
             Featured Projects
           </motion.h2>
@@ -75,18 +75,18 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-3xl mx-auto`}
+            className={`text-base sm:text-lg ${isDark ? "text-gray-400" : "text-gray-600"} max-w-3xl mx-auto`}
           >
             A collection of my most recent and impactful development projects built using modern web technologies.
           </motion.p>
         </div>
 
         {/* Technology Filter */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex flex-wrap gap-3 justify-center">
+        <div className="flex justify-center mb-8 sm:mb-10">
+          <div className="inline-flex flex-wrap gap-2 sm:gap-3 justify-center">
             <button
               onClick={() => setSelectedTech(null)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                 !selectedTech
                   ? "bg-red-600 text-white"
                   : isDark
@@ -100,7 +100,7 @@ const Projects = () => {
               <button
                 key={tech}
                 onClick={() => setSelectedTech(tech)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   selectedTech === tech
                     ? "bg-red-600 text-white"
                     : isDark
@@ -115,7 +115,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} isDark={isDark} />
           ))}
@@ -151,14 +151,12 @@ const ProjectCard = ({ project, index, isDark }) => (
       isDark ? "border-zinc-800" : "border-gray-200"
     } transition-all`}
   >
-    <div
-      className={`h-48 ${isDark ? "bg-zinc-800" : "bg-gray-100"} flex items-center justify-center overflow-hidden`}
-    >
+    <div className={`${isDark ? "bg-zinc-800" : "bg-gray-100"} aspect-[16/10] flex items-center justify-center overflow-hidden`}>
       {project.image ? (
         <img 
           src={project.image} 
           alt={project.title} 
-          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
         />
       ) : (
         <div className={`text-4xl font-bold ${isDark ? "text-gray-600" : "text-gray-300"}`}>
@@ -167,7 +165,7 @@ const ProjectCard = ({ project, index, isDark }) => (
       )}
     </div>
 
-    <div className="p-6 flex-1 flex flex-col">
+    <div className="p-5 sm:p-6 flex-1 flex flex-col">
       <div className="flex justify-end items-start mb-3">
         {project.featured && (
           <span
@@ -180,11 +178,11 @@ const ProjectCard = ({ project, index, isDark }) => (
         )}
       </div>
 
-      <h3 className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
+      <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
         {project.title}
       </h3>
 
-      <p className={`text-sm mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+      <p className={`text-sm sm:text-[0.95rem] mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
         {project.description}
       </p>
 

@@ -94,7 +94,7 @@ const Navbar = React.memo(() => {
               handleSetActive("home");
               closeNav();
             }}
-            className={`text-xl md:text-2xl font-extrabold ${
+            className={`text-xl md:text-2xl font-extrabold max-w-[160px] sm:max-w-none truncate ${
               isDark ? "text-red-400" : "text-red-600"
             } cursor-pointer`}
           >

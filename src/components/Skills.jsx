@@ -58,21 +58,21 @@ const Skills = () => {
     <section
       id="skills"
       ref={ref}
-      className={`w-full py-20 px-4 sm:px-6 overflow-hidden ${
+      className={`relative w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 overflow-hidden scroll-mt-20 ${
         isDark
           ? "bg-gradient-to-b from-zinc-950 to-zinc-900"
           : "bg-gradient-to-b from-gray-50 to-red-50"
       } transition-colors duration-300`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-14"
           initial="hidden"
           animate={controls}
           variants={variants}
         >
           <motion.h2
-            className="text-4xl sm:text-5xl font-bold mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
             variants={itemVariants}
           >
             <span className={isDark ? "text-white" : "text-gray-800"}>
@@ -83,7 +83,7 @@ const Skills = () => {
             </span>
           </motion.h2>
           <motion.p
-            className={`text-lg max-w-2xl mx-auto ${
+            className={`text-base sm:text-lg max-w-2xl mx-auto ${
               isDark ? "text-gray-300" : "text-gray-600"
             }`}
             variants={itemVariants}
@@ -91,6 +91,36 @@ const Skills = () => {
             Tools and technologies I use to design, build, and deploy modern
             web and AI-powered applications.
           </motion.p>
+        </motion.div>
+
+        {/* Mobile / Tablet Grid (clean, predictable) */}
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:hidden"
+          initial="hidden"
+          animate={controls}
+          variants={variants}
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className={`rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center text-center shadow-sm border transition-all ${
+                isDark
+                  ? "bg-zinc-900/70 border-zinc-800 hover:border-red-500/60"
+                  : "bg-white/80 border-gray-200 hover:border-red-500/60"
+              }`}
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+            >
+              <div className="mb-2 sm:mb-3">{skill.icon}</div>
+              <p
+                className={`text-sm sm:text-base font-semibold leading-snug ${
+                  isDark ? "text-gray-100" : "text-gray-800"
+                }`}
+              >
+                {skill.name}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Desktop Swiper */}
@@ -133,48 +163,6 @@ const Skills = () => {
                   <div className="mb-4">{skill.icon}</div>
                   <p
                     className={`text-lg font-semibold text-center ${
-                      isDark ? "text-gray-200" : "text-gray-800"
-                    }`}
-                  >
-                    {skill.name}
-                  </p>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
-
-        {/* Mobile Swiper */}
-        <motion.div
-          className="md:hidden"
-          initial="hidden"
-          animate={controls}
-          variants={variants}
-        >
-          <Swiper
-            slidesPerView={3}
-            spaceBetween={20}
-            autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="mySwiper pb-10"
-          >
-            {skills.map((skill, index) => (
-              <SwiperSlide key={index} className="!h-[120px]">
-                <motion.div
-                  className={`w-full h-full rounded-xl p-4 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 border ${
-                    isDark
-                      ? "bg-zinc-900 border-zinc-800 hover:border-red-500"
-                      : "bg-white border-gray-200 hover:border-red-500"
-                  }`}
-                  whileHover={{ y: -5 }}
-                  variants={itemVariants}
-                >
-                  <div className="mb-2">{skill.icon}</div>
-                  <p
-                    className={`text-sm font-medium text-center ${
                       isDark ? "text-gray-200" : "text-gray-800"
                     }`}
                   >

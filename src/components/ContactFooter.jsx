@@ -55,7 +55,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
       } else {
         throw new Error("Failed to send message");
       }
-    } catch (error) {
+    } catch {
       setError("Failed to send. Please try again later.");
     } finally {
       setIsLoading(false);
@@ -65,10 +65,10 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
   return (
     <footer 
       id="contact" 
-      className={`relative pt-24 pb-12 px-6 ${isDark ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}
+      className={`relative pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-12 px-4 sm:px-6 ${isDark ? 'bg-zinc-950' : 'bg-gray-50'} transition-colors duration-300`}
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 mb-24">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 mb-16 sm:mb-20 lg:mb-24">
           
           {/* Left Side: Contact Information */}
           <motion.div
@@ -77,13 +77,13 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Let’s Connect and <br />
               <span className="text-red-600">Create Something</span>
             </h2>
-            <p className={`text-lg mb-10 ${isDark ? 'text-gray-400' : 'text-gray-600'} max-w-md leading-relaxed`}>
+            <p className={`text-base sm:text-lg mb-8 sm:mb-10 ${isDark ? 'text-gray-400' : 'text-gray-600'} max-w-md leading-relaxed`}>
               I’m currently available for freelance projects or full-time opportunities. 
-              Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+              Whether you have a question or just want to say hi, I will try my best to get back to you!
             </p>
 
             <div className="space-y-6">
@@ -95,7 +95,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                   <p className={`text-xs font-bold uppercase tracking-widest ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Email Me</p>
                   <a 
                     href="mailto:thisisahmad07@gmail.com" 
-                    className={`text-lg font-medium hover:text-red-500 transition-colors ${isDark ? 'text-gray-200' : 'text-gray-800'}`}
+                    className={`text-base sm:text-lg font-medium hover:text-red-500 transition-colors break-words ${isDark ? 'text-gray-200' : 'text-gray-800'}`}
                   >
                     thisisahmad07@gmail.com
                   </a>
@@ -120,7 +120,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className={`p-8 rounded-3xl ${isDark ? 'bg-zinc-900/50 border border-zinc-800' : 'bg-white shadow-xl border border-gray-100'}`}
+            className={`p-5 sm:p-8 rounded-3xl ${isDark ? 'bg-zinc-900/50 border border-zinc-800' : 'bg-white shadow-xl border border-gray-100'}`}
           >
             <AnimatePresence mode='wait'>
               {isSubmitted ? (
@@ -133,7 +133,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
                   <div className="text-5xl mb-6">✨</div>
                   <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>Message Sent!</h3>
                   <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-8`}>
-                    Thanks for reaching out. I'll get back to you shortly.
+                    Thanks for reaching out. I will get back to you shortly.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
@@ -224,7 +224,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
         </div>
 
         {/* Enhanced Footer Navigation */}
-        <div className={`pt-12 border-t flex flex-col md:flex-row justify-between items-start gap-12 ${isDark ? 'border-zinc-800' : 'border-gray-200'}`}>
+        <div className={`pt-10 sm:pt-12 border-t flex flex-col md:flex-row justify-between items-start gap-10 sm:gap-12 ${isDark ? 'border-zinc-800' : 'border-gray-200'}`}>
           
           {/* Brand & Socials */}
           <div className="max-w-xs w-full text-center md:text-left flex flex-col items-center md:items-start">
@@ -287,7 +287,7 @@ const ContactFooter = ({ copyrightName = "Ahmad Hassan" }) => {
         </div>
 
         {/* Copyright Bar */}
-        <div className={`mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium uppercase tracking-widest ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>
+        <div className={`mt-10 sm:mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-xs font-medium uppercase tracking-widest ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>
           <p>© {new Date().getFullYear()} {copyrightName}. All rights reserved.</p>
           <p>
             Crafted with <span className="text-red-600">React</span> & <span className="text-red-600">Tailwind</span>

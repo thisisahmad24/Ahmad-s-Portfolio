@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaLaptopCode, FaPalette, FaGraduationCap, FaBriefcase, FaAward, FaCertificate, FaCode } from "react-icons/fa";
 import Headshot from "../images/Ahmad.png";
 import { GitHubCalendar } from 'react-github-calendar';
+import { useTheme } from "../context/ThemeContext";
 
 const About = () => {
+  const [calendarConfig, setCalendarConfig] = useState({
+    blockSize: 12,
+    blockMargin: 3,
+    fontSize: 12,
+  });
+
+  useEffect(() => {
+    const compute = () => {
+      const w = window.innerWidth;
+      if (w < 380) return { blockSize: 8, blockMargin: 2, fontSize: 10 };
+      if (w < 640) return { blockSize: 10, blockMargin: 2, fontSize: 11 };
+      if (w < 1024) return { blockSize: 11, blockMargin: 3, fontSize: 12 };
+      return { blockSize: 12, blockMargin: 3, fontSize: 12 };
+    };
+
+    const onResize = () => setCalendarConfig(compute());
+    onResize();
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const timelineItems = [
     {
       title: "Current Focus",
@@ -19,6 +41,8 @@ const About = () => {
       delay: 0.4,
     },
   ];
+
+  const { isDark } = useTheme();
 
   const achievements = [
     {
@@ -44,13 +68,13 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full bg-white dark:bg-zinc-950 py-12 md:py-24 px-4 sm:px-6 border-t border-gray-100 dark:border-zinc-900"
+      className="w-full bg-white dark:bg-zinc-950 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 border-t border-gray-100 dark:border-zinc-900 scroll-mt-20"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-3 gap-8 md:gap-16 items-start">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
           {/* Profile Column */}
           <motion.div
-            className="space-y-6 md:space-y-8 lg:sticky top-24"
+            className="space-y-6 md:space-y-8 lg:sticky lg:top-24"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -88,7 +112,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 md:mb-6">
                 Designing the intelligence behind modern software.
               </h2>
 
@@ -101,7 +125,7 @@ const About = () => {
                   Unlike traditional developers, I don’t just build features — I build decision-making systems.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 mt-8 md:mt-12">
                   {[
                     {
                       icon: <FaLaptopCode />,
@@ -126,7 +150,7 @@ const About = () => {
                   ].map((card, index) => (
                     <motion.div
                       key={index}
-                      className="p-6 md:p-8 bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 dark:border-zinc-800"
+                      className="p-5 sm:p-6 md:p-8 bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 dark:border-zinc-800"
                       whileHover={{ y: -5 }}
                     >
                       <motion.div
@@ -227,16 +251,17 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="flex justify-start md:justify-center overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
-                <div className="min-w-[700px] sm:min-w-0">
+              <div className="w-full overflow-x-auto pb-2 -mx-2 px-2">
+                <div style={{ minWidth: 0 }}>
                   <GitHubCalendar 
                     username="thisisahmad24" 
-                    colorScheme={true ? 'dark' : 'light'} 
+                    colorScheme={isDark ? 'dark' : 'light'}
                     theme={{
                       dark: ['#18181b', '#450a0a', '#7f1d1d', '#b91c1c', '#ef4444'],
                     }}
-                    fontSize={12}
-                    blockSize={12}
+                    fontSize={calendarConfig.fontSize}
+                    blockSize={calendarConfig.blockSize}
+                    blockMargin={calendarConfig.blockMargin}
                   />
                 </div>
               </div>
