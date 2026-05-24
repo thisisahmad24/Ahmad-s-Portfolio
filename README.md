@@ -69,13 +69,7 @@ Here is a glimpse of what I am currently working on:
 > **[VIRQA — AI-Powered Interview & Assessment Platform](#)**
 > *AI-driven candidate evaluation system with structured workflows. Focused on AI-powered hiring systems. In active development.*
 
-> **Agentic AI System (Multi-Agent Workflows)**
-> *In progress autonomous AI task execution environment powered by interconnected LLM agents & FastAPI.*
-
-> **AI Video Intelligence**
-> *In progress computer vision pipeline ensuring real-time video comprehension while safeguarding data privacy using TensorFlow.*
-
----
+----
 
 ## 🛠️ Quick Start (Running Locally)
 
