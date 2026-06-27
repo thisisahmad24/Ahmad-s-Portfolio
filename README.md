@@ -20,7 +20,7 @@
 
 I design and build intelligent, production-ready systems that combine AI with real-world applications.
 
-My focus is on creating the **“brain layer”** of modern software — from Agentic AI workflows and LLM-powered applications to scalable backend systems — while still delivering clean, intuitive user experiences. Unlike traditional developers, I don’t just build features; I build decision-making systems.
+My focus is on creating the **“brain layer”** of modern software from Agentic AI workflows and LLM-powered applications to scalable backend systems while still delivering clean, intuitive user experiences. Unlike traditional developers, I don’t just build features; I build decision-making systems.
 
 ---
 
