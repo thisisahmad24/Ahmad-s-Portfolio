@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  FiArrowDownRight, FiArrowRight, FiArrowUpRight, FiCheck, FiCode,
+  FiArrowDownRight, FiArrowUpRight, FiCheck, FiCode,
   FiDownload, FiGithub, FiGlobe, FiLayers, FiLinkedin, FiMail,
   FiMenu, FiMoon, FiSend, FiSun, FiX
 } from "react-icons/fi";
