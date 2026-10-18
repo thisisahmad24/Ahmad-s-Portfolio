@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
   FiArrowDownRight, FiArrowUpRight, FiCheck, FiCode,
   FiDownload, FiGithub, FiGlobe, FiLayers, FiLinkedin, FiMail,
-  FiMenu, FiMoon, FiSend, FiSun, FiX
+  FiMenu, FiMoon, FiSend, FiSun, FiX, FiPlay, FiZap
 } from "react-icons/fi";
-import { FaBrain, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
+import { FaBrain, FaBug, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
 import Headshot from "./images/Ahmad.png";
 
 const profile = {
@@ -88,6 +88,10 @@ function App() {
   const [dark, setDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [gameActive, setGameActive] = useState(false);
+  const [gameTime, setGameTime] = useState(15);
+  const [gameScore, setGameScore] = useState(0);
+  const [bugPosition, setBugPosition] = useState({ x: 48, y: 45 });
 
   useEffect(() => {
     const stored = window.localStorage.getItem("ahmad-theme");
@@ -99,6 +103,34 @@ function App() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!gameActive) return undefined;
+    const timer = window.setInterval(() => {
+      setGameTime((remaining) => {
+        if (remaining <= 1) {
+          window.clearInterval(timer);
+          setGameActive(false);
+          return 0;
+        }
+        return remaining - 1;
+      });
+    }, 1000);
+    return () => window.clearInterval(timer);
+  }, [gameActive]);
+
+  const startGame = () => {
+    setGameScore(0);
+    setGameTime(15);
+    setBugPosition({ x: 48, y: 45 });
+    setGameActive(true);
+  };
+
+  const catchBug = () => {
+    if (!gameActive) return;
+    setGameScore((score) => score + 1);
+    setBugPosition({ x: 8 + Math.random() * 82, y: 12 + Math.random() * 72 });
+  };
 
   const toggleTheme = () => {
     const next = !dark;
@@ -128,7 +160,7 @@ function App() {
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
-          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["Experience", "#experience"]].map(([label, href]) => (
+          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["GitHub", "#activity"], ["Play", "#playground"], ["Experience", "#experience"]].map(([label, href]) => (
             <a key={label} href={href} onClick={closeMenu}>{label}</a>
           ))}
           <a className="nav-contact" href="#contact" onClick={closeMenu}>Let’s talk <FiArrowUpRight /></a>
@@ -206,6 +238,50 @@ function App() {
                 <div className="skill-tags">{group.skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
               </article>
             ))}
+          </div>
+          <div className="skills-proof">
+            <div className="skills-proof-heading"><span className="eyebrow">WHERE I ADD VALUE</span><span className="skills-proof-note">Focused on useful, maintainable outcomes</span></div>
+            <div className="skills-proof-grid">
+              <div><span className="proof-number">01</span><h3>Build</h3><p>APIs, full-stack applications, and reusable product interfaces.</p></div>
+              <div><span className="proof-number">02</span><h3>Integrate</h3><p>LLM-powered workflows, data pipelines, and practical AI features.</p></div>
+              <div><span className="proof-number">03</span><h3>Validate</h3><p>Test strategy, browser automation, and dependable API behavior.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section activity-section" id="activity">
+          <div className="activity-heading">
+            <SectionHeading eyebrow="OPEN SOURCE & CONSISTENCY" title={<>A little more than<br /><em>lines of code.</em></>} copy="Explore my public work and contribution activity on GitHub. The heatmap is served from my GitHub username and may take a moment to load." />
+            <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">Open GitHub profile <FiArrowUpRight /></a>
+          </div>
+          <div className="contribution-card">
+            <div className="contribution-card-top"><div><span className="contribution-dot"></span><strong>Contribution activity</strong></div><span className="contribution-handle">@thisisahmad24</span></div>
+            <div className="contribution-image-wrap"><img src="https://ghchart.rshah.org/7164c5/thisisahmad24" alt="GitHub contribution heatmap for thisisahmad24" loading="lazy" /></div>
+            <div className="contribution-card-bottom"><span>Less <i className="heat heat-0"></i><i className="heat heat-1"></i><i className="heat heat-2"></i><i className="heat heat-3"></i><i className="heat heat-4"></i> More</span><a href="https://github.com/thisisahmad24" target="_blank" rel="noreferrer">View contribution details <FiArrowUpRight /></a></div>
+          </div>
+          <p className="activity-footnote">Contribution data is provided by a third-party chart service. If the image is unavailable, use the GitHub profile link above.</p>
+        </section>
+
+        <section className="section playground-section" id="playground">
+          <div className="playground-intro">
+            <span className="eyebrow">A TINY INTERACTIVE DETOUR</span>
+            <h2>Can you <em>catch the bug?</em></h2>
+            <p>A 15-second mini challenge. Start the sprint and click the moving bug as many times as you can before the timer runs out.</p>
+            <div className="game-stats">
+              <div><span className="game-stat-label">SCORE</span><strong>{gameScore.toString().padStart(2, "0")}</strong></div>
+              <div><span className="game-stat-label">TIME LEFT</span><strong>{gameTime}<small>s</small></strong></div>
+              <div><span className="game-stat-label">STATUS</span><strong className="game-status">{gameActive ? "RUNNING" : gameTime === 0 ? "FINISHED" : "READY"}</strong></div>
+            </div>
+            <button className="button button-primary game-start" onClick={startGame}><FiPlay /> {gameActive ? "Restart sprint" : gameTime === 0 ? "Play again" : "Start sprint"}</button>
+          </div>
+          <div className="game-board" aria-label="Catch the bug game area">
+            <div className="game-board-top"><span><FiZap /> DEBUG SPRINT / 001</span><span>{gameActive ? "CLICK TO CATCH" : "READY WHEN YOU ARE"}</span></div>
+            <div className={"game-arena " + (gameActive ? "arena-active" : "")}>
+              <div className="arena-grid" aria-hidden="true"></div>
+              {gameActive ? <button className="game-bug" style={{ left: bugPosition.x + "%", top: bugPosition.y + "%" }} onClick={catchBug} aria-label="Catch the bug"><FaBug /></button> : <div className="game-start-prompt"><span className="prompt-icon"><FiCode /></span><strong>{gameTime === 0 ? "Sprint complete: " + gameScore + " bugs caught" : "Ready to debug?"}</strong><small>{gameTime === 0 ? "Run it back and beat your score." : "Start the timer to begin."}</small></div>}
+              <span className="arena-corner corner-tl"></span><span className="arena-corner corner-br"></span>
+            </div>
+            <div className="game-board-bottom"><span>STATUS: {gameActive ? "BUG DETECTED" : "SYSTEM IDLE"}</span><span>HAVE FUN. SHIP CLEAN CODE.</span></div>
           </div>
         </section>
 
