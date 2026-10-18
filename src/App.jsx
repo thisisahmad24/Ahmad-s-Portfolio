@@ -192,7 +192,7 @@ function App() {
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
-          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["GitHub", "#activity"], ["Play", "#playground"], ["Experience", "#experience"], ["University", "#university"]].map(([label, href]) => (
+          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["GitHub", "#activity"], ["Play", "#playground"], ["Experience", "#experience"], ["Education", "#university"]].map(([label, href]) => (
             <a key={label} href={href} onClick={closeMenu}>{label}</a>
           ))}
           <a className="nav-contact" href="#contact" onClick={closeMenu}>Let’s talk <FiArrowUpRight /></a>
