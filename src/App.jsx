@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   FiArrowDownRight, FiArrowUpRight, FiCheck, FiCode,
   FiDownload, FiGithub, FiGlobe, FiLayers, FiLinkedin, FiMail,
-  FiMenu, FiMoon, FiSend, FiSun, FiX, FiPlay, FiZap, FiUsers, FiImage
+  FiMenu, FiMoon, FiSend, FiSun, FiX, FiPlay, FiZap, FiUsers, FiImage, FiMapPin
 } from "react-icons/fi";
 import { FaBrain, FaBug, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
 import Headshot from "./images/Ahmad.png";
@@ -180,6 +180,27 @@ function App() {
   const visibleProjects = projects.filter((project) => activeFilter === "All" || project.category === activeFilter || (activeFilter === "AI / Data" && project.category === "AI / ML"));
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleContactSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const subject = String(formData.get("subject") || "General Inquiry").trim();
+    const message = String(formData.get("message") || "").trim();
+    const body = [
+      `Hi Ahmad,`,
+      "",
+      message,
+      "",
+      "---",
+      `From: ${name}`,
+      `Reply email: ${email}`,
+      phone ? `Phone: ${phone}` : "",
+    ].filter(Boolean).join("\\n");
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <div className="portfolio-shell">
@@ -402,16 +423,56 @@ function App() {
         </section>
 
         <section className="section contact-section" id="contact">
+          <div className="contact-intro">
+            <span className="eyebrow">REACH OUT DIRECTLY</span>
+            <h2>Start a <em>conversation.</em></h2>
+            <p>Whether it’s an opportunity, a project, or a thoughtful exchange, choose the channel that works best for you.</p>
+          </div>
           <div className="contact-layout">
-            <div><SectionHeading eyebrow="GET IN TOUCH" title={<>Have a good idea?<br /><em>Let’s talk.</em></>} copy="For roles, collaborations, or a conversation about building something useful, feel free to reach out." />
-              <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email} <FiArrowUpRight /></a>
+            <div className="contact-details-column">
+              <div className="contact-channel-list">
+                <a className="contact-channel" href={`mailto:${profile.email}`}>
+                  <span className="contact-channel-icon"><FiMail /></span>
+                  <span className="contact-channel-copy"><small>Email</small><strong>{profile.email}</strong></span>
+                  <FiArrowUpRight className="contact-channel-arrow" />
+                </a>
+                <a className="contact-channel" href={profile.github} target="_blank" rel="noreferrer">
+                  <span className="contact-channel-icon"><FiGithub /></span>
+                  <span className="contact-channel-copy"><small>GitHub</small><strong>thisisahmad24</strong></span>
+                  <FiArrowUpRight className="contact-channel-arrow" />
+                </a>
+                <a className="contact-channel" href={profile.linkedin} target="_blank" rel="noreferrer">
+                  <span className="contact-channel-icon"><FiLinkedin /></span>
+                  <span className="contact-channel-copy"><small>LinkedIn</small><strong>Ahmad Hassan</strong></span>
+                  <FiArrowUpRight className="contact-channel-arrow" />
+                </a>
+              </div>
+              <div className="contact-location"><span className="contact-location-icon"><FiMapPin /></span><div><small>LOCATION</small><strong>Lahore, Pakistan</strong></div></div>
+              <div className="availability-card">
+                <span className="eyebrow">CURRENTLY AVAILABLE FOR</span>
+                <ul>
+                  <li><FiCheck /> Internship opportunities</li>
+                  <li><FiCheck /> Freelance projects</li>
+                  <li><FiCheck /> Backend & web development</li>
+                  <li><FiCheck /> AI/ML collaboration</li>
+                </ul>
+              </div>
             </div>
-            <div className="contact-card">
-              <div className="contact-card-heading"><span className="contact-card-icon"><FiSend /></span><div><h3>Connect with me</h3><p>I usually respond by email or LinkedIn.</p></div></div>
-              <a href={`mailto:${profile.email}`}><span><FiMail /> Email</span><FiArrowUpRight /></a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer"><span><FiLinkedin /> LinkedIn</span><FiArrowUpRight /></a>
-              <a href={profile.github} target="_blank" rel="noreferrer"><span><FiGithub /> GitHub</span><FiArrowUpRight /></a>
-              <a href={profile.resume} target="_blank" rel="noreferrer"><span><FiDownload /> Download résumé</span><FiArrowUpRight /></a>
+            <div className="contact-form-card">
+              <div className="contact-form-heading"><span className="contact-card-icon"><FiSend /></span><div><h3>Send me a message</h3><p>Share a little context and I’ll get back to you as soon as possible.</p></div></div>
+              <form className="contact-form" onSubmit={handleContactSubmit}>
+                <div className="contact-form-row">
+                  <label>Full name<input name="name" type="text" autoComplete="name" placeholder="Your name" required /></label>
+                  <label>Email address<input name="email" type="email" autoComplete="email" placeholder="you@example.com" required /></label>
+                </div>
+                <div className="contact-form-row">
+                  <label>Phone number <span>Optional</span><input name="phone" type="tel" autoComplete="tel" placeholder="+92 ..." /></label>
+                  <label>Subject<select name="subject" defaultValue="Internship Opportunity" required><option>Internship Opportunity</option><option>Freelance Project</option><option>Collaboration</option><option>Portfolio Feedback</option><option>General Inquiry</option><option>Other</option></select></label>
+                </div>
+                <label>Message<textarea name="message" rows="5" placeholder="Tell me a little about what you have in mind..." required /></label>
+                <button className="button button-primary contact-submit" type="submit"><FiSend /> Send message <FiArrowUpRight /></button>
+                <p className="contact-form-note">Your email app will open with your message ready to send. No information is stored on this website.</p>
+              </form>
             </div>
           </div>
         </section>
