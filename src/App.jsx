@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   FiArrowDownRight, FiArrowUpRight, FiCheck, FiCode,
   FiDownload, FiGithub, FiGlobe, FiLayers, FiLinkedin, FiMail,
-  FiMenu, FiMoon, FiSend, FiSun, FiX, FiPlay, FiZap
+  FiMenu, FiMoon, FiSend, FiSun, FiX, FiPlay, FiZap, FiUsers, FiImage
 } from "react-icons/fi";
 import { FaBrain, FaBug, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
 import Headshot from "./images/Ahmad.png";
@@ -18,59 +18,96 @@ const profile = {
 
 const projects = [
   {
-    number: "01",
-    title: "VIRQA",
-    type: "AI interview platform · Final year project",
-    description: "An AI-powered interview experience with real-time voice Q&A, adaptive difficulty, multi-role dashboards, and automated LLM-driven evaluation.",
-    stack: ["React", "Node.js", "MongoDB", "Socket.io", "Groq", "Whisper"],
-    icon: <FaRobot />,
-    tone: "lavender",
+    number: "01", title: "VIRQA", type: "AI interview platform · Final-year project",
+    description: "An AI interview practice platform with voice-based questions, adaptive difficulty, role-specific flows, and LLM-assisted evaluation.",
+    stack: ["React", "Node.js", "MongoDB", "Socket.io", "Groq", "Whisper"], icon: <FaRobot />, tone: "lavender",
+    category: "AI / ML", thumbnail: "/project-thumbnails/virqa.svg", thumbnailAlt: "VIRQA interview workspace concept with voice interface and evaluation panel",
     featured: true,
   },
   {
-    number: "02",
-    title: "SnapSave Pro",
-    type: "Full-stack web application",
-    description: "A media-downloading product with a Next.js interface, FastAPI extraction engine, database integration, and a freemium product model.",
-    stack: ["Next.js 15", "FastAPI", "MongoDB"],
-    icon: <FiGlobe />,
-    tone: "mint",
-    featured: true,
+    number: "02", title: "SnapSave Pro", type: "Full-stack media product",
+    description: "An Instagram-focused media downloader with a Next.js frontend, FastAPI extraction service, MongoDB-backed quotas, and account features.",
+    stack: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "JWT"], icon: <FiGlobe />, tone: "mint",
+    category: "Full-stack", thumbnail: "/project-thumbnails/snapsave-pro.svg", thumbnailAlt: "SnapSave Pro media workspace preview with media cards and download controls",
+    href: "https://github.com/thisisahmad24/snap-save-pro", featured: true,
   },
   {
-    number: "03",
-    title: "Sentiment Analysis",
-    type: "Deep learning · NLP",
-    description: "A Bidirectional LSTM sentiment classifier for IMDb reviews, built with custom text preprocessing, embedding layers, and model validation.",
-    stack: ["Python", "TensorFlow", "BiLSTM", "NLP"],
-    icon: <FaBrain />,
-    tone: "peach",
-    featured: false,
+    number: "03", title: "TransferIQ", type: "Machine learning · Sports analytics",
+    description: "A Premier League transfer-fee estimation pipeline using historical FPL performance, player attributes, feature engineering, regression models, and a Streamlit dashboard.",
+    stack: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Pytest"], icon: <FaBrain />, tone: "blue",
+    category: "AI / Data", thumbnail: "/project-thumbnails/transferiq.svg", thumbnailAlt: "TransferIQ analytics dashboard concept with estimated player value and trend chart",
+    href: "https://github.com/thisisahmad24/transfer-iq", featured: true,
   },
   {
-    number: "04",
-    title: "QA Automation Portfolio",
-    type: "Software quality engineering",
-    description: "A maintainable browser automation suite using the Page Object Model, data-driven tests, cross-browser checks, and reusable test components.",
-    stack: ["Java", "Selenium", "TestNG", "POM"],
-    icon: <FaShieldAlt />,
-    tone: "blue",
-    featured: false,
+    number: "04", title: "Helmet Detection & E-Challan", type: "Computer vision · Road safety",
+    description: "A YOLOv8 and OpenCV system designed to detect helmet violations, annotate evidence frames, and log potential violations for a traffic-enforcement workflow.",
+    stack: ["Python", "YOLOv8", "OpenCV", "Computer Vision"], icon: <FaShieldAlt />, tone: "peach",
+    category: "AI / Data", thumbnail: "/project-thumbnails/helmet-challan.svg", thumbnailAlt: "Computer vision preview showing a rider detection bounding box and violation status",
+    href: "https://github.com/thisisahmad24/helmet-challan-system",
+  },
+  {
+    number: "05", title: "Movie Review Sentiment Analyzer", type: "NLP · Web application",
+    description: "A Flask application that classifies IMDb movie reviews as positive or negative with a trained BiLSTM model and lets users search and manage saved reviews.",
+    stack: ["Python", "Flask", "TensorFlow", "BiLSTM", "NLP"], icon: <FaBrain />, tone: "lavender",
+    category: "AI / Data", thumbnail: "/project-thumbnails/sentiment-analyzer.svg", thumbnailAlt: "Sentiment analysis dashboard concept showing a review and positive prediction confidence",
+    href: "https://github.com/thisisahmad24/MovieReviews-SentimentApp-Python",
+  },
+  {
+    number: "06", title: "Multi-Agent Workflows", type: "Local AI · Agent orchestration",
+    description: "An experiment in coordinating specialized local LLM agents for task decomposition, research, coding, and review using Ollama with LangChain/LangGraph.",
+    stack: ["Python", "Ollama", "LangChain", "LangGraph"], icon: <FaRobot />, tone: "mint",
+    category: "AI / Data", thumbnail: "/project-thumbnails/multi-agent.svg", thumbnailAlt: "Multi-agent workflow diagram preview showing connected research, coding, review, planning, and result nodes",
+    href: "https://github.com/thisisahmad24/multi-agent-workflows",
+  },
+  {
+    number: "07", title: "Authentication REST API", type: "Backend · Application security",
+    description: "A Node.js and Express authentication service with password hashing, email verification, rotating refresh tokens, password resets, account lockout, and role-based access control.",
+    stack: ["Node.js", "Express", "MongoDB", "JWT", "Jest", "Docker"], icon: <FaShieldAlt />, tone: "blue",
+    category: "Backend / APIs", thumbnail: "/project-thumbnails/auth-service.svg", thumbnailAlt: "Authentication service console concept showing protected access, token handling, and security status",
+    href: "https://github.com/thisisahmad24/auth-service",
+  },
+  {
+    number: "08", title: "QA Automation Portfolio", type: "Quality engineering · Test frameworks",
+    description: "A reusable test portfolio covering Selenium and Java, Page Object Model structure, SauceDemo and Daraz scenarios, manual test design, and maintainable test utilities.",
+    stack: ["Java", "Selenium", "TestNG", "Maven", "POM"], icon: <FaTerminal />, tone: "peach",
+    category: "QA / Testing", thumbnail: "/project-thumbnails/qa-automation.svg", thumbnailAlt: "QA test report preview with passing checks and a progress indicator",
     href: "https://github.com/thisisahmad24/qa-automation-portfolio",
+  },
+  {
+    number: "09", title: "GoalGate", type: "Football highlights · Full-stack web",
+    description: "A football fan platform concept featuring match highlights, live football data, responsive match-centre UI, and fan ratings backed by Supabase.",
+    stack: ["Next.js", "React", "Supabase", "PostgreSQL", "Framer Motion"], icon: <FiGlobe />, tone: "mint",
+    category: "Full-stack", thumbnail: "/project-thumbnails/goalgate.svg", thumbnailAlt: "GoalGate football match centre preview with team score, highlights, and fan rating panels",
+    href: "https://github.com/thisisahmad24/GoalGate",
+  },
+  {
+    number: "10", title: "Java GUI Phonebook", type: "University project · Desktop application",
+    description: "A Java Swing contact manager with add, search, edit, delete, and list actions, input validation, and local file persistence. Contributed as team lead for GUI, integration, Git, and testing.",
+    stack: ["Java", "Swing", "OOP", "File I/O", "Git"], icon: <FiCode />, tone: "lavender",
+    category: "University projects", thumbnail: "/project-thumbnails/java-phonebook.svg", thumbnailAlt: "Java phonebook interface concept with contact rows and add-contact controls",
+    href: "https://github.com/thisisahmad24/Java-GUI-Phonebook",
   },
 ];
 
 const skillGroups = [
-  { icon: <FiCode />, title: "Languages", skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"] },
-  { icon: <FaBrain />, title: "AI & Machine Learning", skills: ["LLM integration", "RAG", "Prompt engineering", "TensorFlow", "PyTorch", "Scikit-learn", "NLP", "BiLSTM"] },
-  { icon: <FiLayers />, title: "Web & Backend", skills: ["React", "Next.js", "Node.js", "Express.js", "FastAPI", "Django", "REST APIs", "Socket.io", "JWT"] },
-  { icon: <FaDatabase />, title: "Data & Infrastructure", skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Docker", "Git", "GitHub", "Vercel", "Render"] },
-  { icon: <FaTerminal />, title: "QA & Testing", skills: ["Selenium WebDriver", "Playwright", "TestNG", "Page Object Model", "Postman", "API testing", "Test case design"] },
+  { icon: <FiCode />, title: "Programming Languages", subtitle: "Core programming & data querying", skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"] },
+  { icon: <FiLayers />, title: "Frontend & UI", subtitle: "Interfaces and product experience", skills: ["React", "Next.js", "HTML5", "CSS3", "Responsive design"] },
+  { icon: <FaTerminal />, title: "Backend & APIs", subtitle: "Services, integration & auth", skills: ["Node.js", "Express.js", "FastAPI", "Django", "Flask", "REST APIs", "Socket.io", "JWT"] },
+  { icon: <FaBrain />, title: "AI & Machine Learning", subtitle: "Models, NLP & LLM workflows", skills: ["LLM integration", "RAG concepts", "Prompt engineering", "TensorFlow / Keras", "PyTorch", "Scikit-learn", "NLP", "BiLSTM", "LangChain / LangGraph"] },
+  { icon: <FaDatabase />, title: "Databases & DevOps", subtitle: "Data persistence and delivery", skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Docker", "Git / GitHub", "Vercel", "Render"] },
+  { icon: <FaShieldAlt />, title: "QA & Test Automation", subtitle: "Reliable releases through validation", skills: ["Selenium WebDriver", "Playwright", "Cypress", "TestNG", "Page Object Model", "Postman", "API testing", "Test case design"] },
+  { icon: <FiGlobe />, title: "Design & Collaboration", subtitle: "Communication, teamwork & visual craft", skills: ["Figma", "Canva", "Photoshop", "Git workflows", "Agile collaboration", "Technical documentation"] },
 ];
 
-const experience = [
-  { date: "JUL — AUG 2026", role: "SQA Intern", company: "DaFi Labs · Remote", detail: "Executed functional and manual testing, designed test scenarios, documented defects, and used Postman and Playwright for API and end-to-end testing." },
-  { date: "NOV — DEC 2025", role: "Front End Developer Intern", company: "Apexcify Technologies · Remote", detail: "Built responsive React interfaces, implemented reusable UI components, and supported cross-browser compatibility in an agile team." },
+const professionalExperience = [
+  { date: "JUL — AUG 2026", role: "SQA Intern", company: "DaFi Labs · Remote", detail: "Worked on functional and manual testing, test-scenario design, defect documentation, API checks with Postman, and end-to-end automation with Playwright." },
+  { date: "NOV — DEC 2025", role: "Frontend Developer Intern", company: "Apexcify Technologies · Remote", detail: "Built responsive React interfaces, implemented reusable UI components, and supported cross-browser compatibility in a collaborative development workflow." },
+];
+
+const communityExperience = [
+  { date: "JUN 2025 — MAR 2026", role: "Social Media Manager", company: "Cyber Security Society · UCP", detail: "Managed the society’s social media presence and supported communication around its activities and community initiatives." },
+  { date: "NOV — DEC 2025", role: "Brand Ambassador", company: "DataCrumbs · Hybrid", detail: "Represented DataCrumbs in a student-facing ambassador role, helping build awareness of the brand and its learning community." },
+  { date: "APR — JUN 2025", role: "Media Director", company: "ACM UCP Chapter", detail: "Led media and design work for the chapter’s digital presence, event branding, promotional campaigns, and event photography/videography. Coordinated creative output across platforms using Canva, Photoshop, and Figma." },
 ];
 
 function SectionHeading({ eyebrow, title, copy, align = "left" }) {
@@ -139,13 +176,8 @@ function App() {
     window.localStorage.setItem("ahmad-theme", next ? "dark" : "light");
   };
 
-  const filters = ["All", "AI / ML", "Full-stack", "QA / Testing"];
-  const visibleProjects = projects.filter((project) => {
-    if (activeFilter === "All") return true;
-    if (activeFilter === "AI / ML") return ["VIRQA", "Sentiment Analysis"].includes(project.title);
-    if (activeFilter === "Full-stack") return ["VIRQA", "SnapSave Pro"].includes(project.title);
-    return project.title === "QA Automation Portfolio";
-  });
+  const filters = ["All", "AI / Data", "Full-stack", "Backend / APIs", "QA / Testing", "University projects"];
+  const visibleProjects = projects.filter((project) => activeFilter === "All" || project.category === activeFilter || (activeFilter === "AI / Data" && project.category === "AI / ML"));
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -160,7 +192,7 @@ function App() {
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
-          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["GitHub", "#activity"], ["Play", "#playground"], ["Experience", "#experience"]].map(([label, href]) => (
+          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["GitHub", "#activity"], ["Play", "#playground"], ["Experience", "#experience"], ["University", "#university"]].map(([label, href]) => (
             <a key={label} href={href} onClick={closeMenu}>{label}</a>
           ))}
           <a className="nav-contact" href="#contact" onClick={closeMenu}>Let’s talk <FiArrowUpRight /></a>
@@ -235,6 +267,7 @@ function App() {
               <article className="skill-card" key={group.title}>
                 <div className="skill-card-top"><span className="skill-icon">{group.icon}</span><span className="skill-index">0{index + 1}</span></div>
                 <h3>{group.title}</h3>
+                <p className="skill-subtitle">{group.subtitle}</p>
                 <div className="skill-tags">{group.skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
               </article>
             ))}
@@ -296,10 +329,10 @@ function App() {
           <div className="projects-grid">
             {visibleProjects.map((project) => (
               <article className={`project-card tone-${project.tone} ${project.featured ? "project-featured" : ""}`} key={project.number}>
-                <div className="project-art">
-                  <div className="project-art-label"><span>PROJECT / {project.number}</span><span>{project.icon}</span></div>
-                  <div className="project-art-center"><span className="art-ring ring-one"></span><span className="art-ring ring-two"></span><span className="art-symbol">{project.icon}</span></div>
-                  <span className="project-art-word">{project.title === "Sentiment Analysis" ? "NLP" : project.title === "QA Automation Portfolio" ? "TEST" : project.title === "SnapSave Pro" ? "BUILD" : "VIRQA"}</span>
+                <div className="project-thumbnail">
+                  <img src={project.thumbnail} alt={project.thumbnailAlt} loading="lazy" />
+                  <span className="project-number">PROJECT / {project.number}</span>
+                  <span className="project-category">{project.category}</span>
                 </div>
                 <div className="project-body">
                   <p className="project-type">{project.type}</p>
@@ -308,7 +341,7 @@ function App() {
                   <div className="project-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
                   <div className="project-footer">
                     <span className="project-status"><span></span> FEATURED WORK</span>
-                    {project.href ? <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>View repository <FiArrowUpRight /></a> : <a href={profile.github} target="_blank" rel="noreferrer" aria-label={`Explore ${project.title} and other repositories on GitHub`}>Explore work <FiArrowUpRight /></a>}
+                    {project.href ? <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>View on GitHub <FiArrowUpRight /></a> : <a href={profile.github} target="_blank" rel="noreferrer" aria-label={`Explore ${project.title} and other repositories on GitHub`}>Explore work <FiArrowUpRight /></a>}
                   </div>
                 </div>
               </article>
@@ -317,16 +350,47 @@ function App() {
         </section>
 
         <section className="section experience-section" id="experience">
-          <div className="experience-layout">
-            <div className="experience-intro">
-              <SectionHeading eyebrow="THE JOURNEY SO FAR" title={<>Learning by<br /><em>building and doing.</em></>} copy="Hands-on experience across software quality and frontend development, supported by a foundation in software engineering." />
-              <div className="education-card"><span className="education-icon"><FiCheck /></span><div><span className="eyebrow">EDUCATION</span><h3>BS Software Engineering</h3><p>University of Central Punjab · Lahore</p><small>Oct 2022 — Jul 2026 <b>·</b> CGPA 3.26 / 4.0</small></div></div>
+          <div className="experience-section-heading">
+            <SectionHeading eyebrow="EXPERIENCE & LEADERSHIP" title={<>Growing through<br /><em>work and community.</em></>} copy="A clear view of my professional roles and the leadership work I have contributed to alongside university." />
+          </div>
+          <div className="experience-columns">
+            <div className="experience-track">
+              <div className="track-heading"><span className="track-icon"><FiCode /></span><div><h3>Professional experience</h3><p>Engineering, delivery & quality</p></div><span className="track-count">02 ROLES</span></div>
+              <div className="timeline">
+                {professionalExperience.map((item, index) => <article className="timeline-item" key={item.role}><div className="timeline-marker"><span></span></div><div className="timeline-content"><span className="timeline-date">{item.date}</span><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div><span className="timeline-number">0{index + 1}</span></article>)}
+              </div>
             </div>
-            <div className="timeline">
-              {experience.map((item, index) => <article className="timeline-item" key={item.role}><div className="timeline-marker"><span></span></div><div className="timeline-content"><span className="timeline-date">{item.date}</span><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div><span className="timeline-number">0{index + 1}</span></article>)}
-              <article className="timeline-item"><div className="timeline-marker"><span></span></div><div className="timeline-content"><span className="timeline-date">2022 — 2026</span><h3>Software Engineering</h3><p className="timeline-company">University of Central Punjab</p><p className="timeline-detail">Built a strong foundation in software design, programming, data structures, and collaborative project delivery.</p></div><span className="timeline-number">03</span></article>
+            <div className="experience-track community-track">
+              <div className="track-heading"><span className="track-icon"><FiUsers /></span><div><h3>Leadership & community</h3><p>Media, outreach & student engagement</p></div><span className="track-count">03 ROLES</span></div>
+              <div className="timeline">
+                {communityExperience.map((item, index) => <article className="timeline-item" key={item.role + item.company}><div className="timeline-marker"><span></span></div><div className="timeline-content"><span className="timeline-date">{item.date}</span><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div><span className="timeline-number">0{index + 1}</span></article>)}
+              </div>
             </div>
           </div>
+        </section>
+
+        <section className="section university-section" id="university">
+          <div className="university-intro">
+            <div>
+              <SectionHeading eyebrow="BEYOND THE CLASSROOM" title={<>My university life &<br /><em>engineering journey.</em></>} copy="The experiences behind the degree: team projects, design challenges, campus communities, and learning how to build with other people." />
+            </div>
+            <div className="university-education-card">
+              <span className="university-mark">UCP</span>
+              <div><span className="eyebrow">EDUCATION</span><h3>BS Software Engineering</h3><p>University of Central Punjab · Lahore</p><div className="education-meta"><span>Nov 2022 — Jul 2026</span><strong>CGPA 3.26 / 4.00</strong></div></div>
+            </div>
+          </div>
+          <div className="university-highlights">
+            <article><span className="highlight-index">01 / BUILD</span><h3>Projects & engineering practice</h3><p>Collaborated on software projects using GitHub, applied programming and database concepts, and explored AI/ML, web development, and test automation through practical work.</p></article>
+            <article><span className="highlight-index">02 / LEAD</span><h3>Leadership & communication</h3><p>Served as class representative and took on student-society media responsibilities—building coordination, communication, and team-delivery skills.</p></article>
+            <article><span className="highlight-index">03 / PARTICIPATE</span><h3>Campus life & competitions</h3><p>Participated in coding and design challenges—including poster, branding, and UI/UX activities—and represented the university in futsal tournaments.</p></article>
+          </div>
+          <div className="university-gallery-heading"><div><span className="eyebrow">MEMORIES & MILESTONES</span><h3>A space for the moments that shaped the journey.</h3></div><p>Photo slots are ready for campus, team, event, and project pictures.</p></div>
+          <div className="university-gallery">
+            <article className="university-photo-slot slot-campus"><div className="photo-slot-art"><span className="slot-orbit"></span><span className="slot-icon"><FiImage /></span></div><div className="photo-slot-caption"><span>PHOTO SLOT 01</span><strong>Campus & university life</strong><small>Add a campus or class photo</small></div></article>
+            <article className="university-photo-slot slot-team"><div className="photo-slot-art"><span className="slot-orbit"></span><span className="slot-icon"><FiUsers /></span></div><div className="photo-slot-caption"><span>PHOTO SLOT 02</span><strong>Teams, societies & events</strong><small>Add ACM, society, or event photos</small></div></article>
+            <article className="university-photo-slot slot-project"><div className="photo-slot-art"><span className="slot-orbit"></span><span className="slot-icon"><FiLayers /></span></div><div className="photo-slot-caption"><span>PHOTO SLOT 03</span><strong>Projects & prototypes</strong><small>Add screenshots or demo-day photos</small></div></article>
+          </div>
+          <p className="university-gallery-note">These are intentional placeholders—not stock photos—so your own real university memories can be added without misrepresenting your experience.</p>
         </section>
 
         <section className="cta-section">
