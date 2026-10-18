@@ -213,10 +213,10 @@ function App() {
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
-          {[["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["GitHub", "#activity"], ["Play", "#playground"], ["Experience", "#experience"], ["Education", "#university"]].map(([label, href]) => (
+          { [["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["Play", "#playground"], ["Experience", "#experience"], ["Education", "#university"]].map(([label, href]) => (
             <a key={label} href={href} onClick={closeMenu}>{label}</a>
           ))}
-          <a className="nav-contact" href="#contact" onClick={closeMenu}>Let’s talk <FiArrowUpRight /></a>
+          <a className="nav-contact" href="#contact" onClick={closeMenu}>Contact <FiArrowUpRight /></a>
         </nav>
         <button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}>{dark ? <FiSun /> : <FiMoon />}</button>
       </header>
@@ -303,19 +303,6 @@ function App() {
           </div>
         </section>
 
-        <section className="section activity-section" id="activity">
-          <div className="activity-heading">
-            <SectionHeading eyebrow="OPEN SOURCE & CONSISTENCY" title={<>A little more than<br /><em>lines of code.</em></>} copy="Explore my public work and contribution activity on GitHub. The heatmap is served from my GitHub username and may take a moment to load." />
-            <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">Open GitHub profile <FiArrowUpRight /></a>
-          </div>
-          <div className="contribution-card">
-            <div className="contribution-card-top"><div><span className="contribution-dot"></span><strong>Contribution activity</strong></div><span className="contribution-handle">@thisisahmad24</span></div>
-            <div className="contribution-image-wrap"><img src="https://ghchart.rshah.org/7164c5/thisisahmad24" alt="GitHub contribution heatmap for thisisahmad24" loading="lazy" /></div>
-            <div className="contribution-card-bottom"><span>Less <i className="heat heat-0"></i><i className="heat heat-1"></i><i className="heat heat-2"></i><i className="heat heat-3"></i><i className="heat heat-4"></i> More</span><a href="https://github.com/thisisahmad24" target="_blank" rel="noreferrer">View contribution details <FiArrowUpRight /></a></div>
-          </div>
-          <p className="activity-footnote">Contribution data is provided by a third-party chart service. If the image is unavailable, use the GitHub profile link above.</p>
-        </section>
-
         <section className="section playground-section" id="playground">
           <div className="playground-intro">
             <span className="eyebrow">A TINY INTERACTIVE DETOUR</span>
@@ -367,6 +354,19 @@ function App() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="projects-github-activity">
+            <div className="activity-heading">
+              <SectionHeading eyebrow="OPEN SOURCE & CONSISTENCY" title={<>A little more than<br /><em>lines of code.</em></>} copy="Explore my public work and contribution activity on GitHub. The heatmap is served from my GitHub username and may take a moment to load." />
+              <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">Open GitHub profile <FiArrowUpRight /></a>
+            </div>
+            <div className="contribution-card">
+              <div className="contribution-card-top"><div><span className="contribution-dot"></span><strong>Contribution activity</strong></div><span className="contribution-handle">@thisisahmad24</span></div>
+              <div className="contribution-image-wrap"><img src="https://ghchart.rshah.org/7164c5/thisisahmad24" alt="GitHub contribution heatmap for thisisahmad24" loading="lazy" /></div>
+              <div className="contribution-card-bottom"><span>Less <i className="heat heat-0"></i><i className="heat heat-1"></i><i className="heat heat-2"></i><i className="heat heat-3"></i><i className="heat heat-4"></i> More</span><a href="https://github.com/thisisahmad24" target="_blank" rel="noreferrer">View contribution details <FiArrowUpRight /></a></div>
+            </div>
+            <p className="activity-footnote">Contribution data is provided by a third-party chart service. If the image is unavailable, use the GitHub profile link above.</p>
           </div>
         </section>
 
