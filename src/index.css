@@ -330,3 +330,77 @@ img, svg { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Portfolio enhancements: skill hierarchy, GitHub activity, and the mini-game */
+.skills-proof { margin-top: 34px; padding: 27px 30px 30px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.skills-proof-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 21px; }
+.skills-proof-heading .eyebrow { margin: 0; }
+.skills-proof-note { color: var(--muted); font-size: 11px; }
+.skills-proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.skills-proof-grid > div { padding-left: 15px; border-left: 2px solid var(--accent-soft); }
+.proof-number { color: var(--accent); font: 10px 'DM Mono', monospace; letter-spacing: 1px; }
+.skills-proof-grid h3 { margin: 8px 0; font-size: 16px; letter-spacing: -.3px; }
+.skills-proof-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; max-width: 260px; }
+.activity-section { background: var(--surface); }
+.activity-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; max-width: 1180px; margin: 0 auto 35px; }
+.activity-heading .text-link { flex-shrink: 0; margin-bottom: 8px; }
+.contribution-card { max-width: 1180px; margin: 0 auto; border: 1px solid var(--line); border-radius: 12px; padding: 25px 27px 20px; background: var(--paper); }
+.contribution-card-top, .contribution-card-bottom, .contribution-card-top > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.contribution-card-top strong { font-size: 13px; }
+.contribution-card-top > div { justify-content: flex-start; }
+.contribution-dot { width: 8px; height: 8px; border-radius: 50%; background: #7bb88f; box-shadow: 0 0 0 4px rgba(123,184,143,.13); }
+.contribution-handle { font: 10px 'DM Mono', monospace; color: var(--muted); }
+.contribution-image-wrap { overflow-x: auto; padding: 27px 0 18px; }
+.contribution-image-wrap img { display: block; width: 100%; min-width: 680px; height: auto; }
+.contribution-card-bottom { color: var(--muted); font-size: 10px; }
+.contribution-card-bottom > span, .contribution-card-bottom a { display: inline-flex; align-items: center; gap: 6px; }
+.contribution-card-bottom a { color: var(--accent); font-weight: 700; }
+.heat { width: 10px; height: 10px; border-radius: 2px; background: #e8e7ed; }
+.heat-1 { background: #d7d0f6; }.heat-2 { background: #b7a9ee; }.heat-3 { background: #9581df; }.heat-4 { background: #7164c5; }
+.activity-footnote { max-width: 1180px; margin: 13px auto 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
+.playground-section { display: grid; grid-template-columns: .78fr 1.22fr; align-items: center; gap: clamp(35px, 6vw, 80px); }
+.playground-intro h2 { margin: 0; font-size: clamp(36px, 4.2vw, 53px); line-height: 1.13; letter-spacing: -2px; }
+.playground-intro h2 em { color: var(--accent); font-family: 'Playfair Display', serif; font-weight: 500; }
+.playground-intro > p { max-width: 390px; color: var(--muted); font-size: 13px; line-height: 1.9; margin: 20px 0 25px; }
+.game-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; max-width: 390px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.game-stats > div { display: flex; flex-direction: column; gap: 8px; }
+.game-stat-label { font: 9px 'DM Mono', monospace; letter-spacing: 1px; color: var(--muted); }
+.game-stats strong { font-size: 23px; letter-spacing: -1px; }
+.game-stats strong small { font-size: 12px; color: var(--muted); margin-left: 2px; }
+.game-stats .game-status { font-size: 12px; letter-spacing: .2px; padding-top: 6px; }
+.game-start { cursor: pointer; }
+.game-board { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: 0 22px 65px rgba(30,30,40,.07); }
+.game-board-top, .game-board-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px; color: var(--muted); font: 9px 'DM Mono', monospace; letter-spacing: .6px; }
+.game-board-top { border-bottom: 1px solid var(--line); }
+.game-board-top span:first-child { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); }
+.game-board-bottom { border-top: 1px solid var(--line); font-size: 8px; }
+.game-arena { position: relative; min-height: 330px; height: clamp(300px, 34vw, 390px); overflow: hidden; background: var(--paper-2); isolation: isolate; }
+.arena-grid { position: absolute; inset: 0; z-index: -1; opacity: .65; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 24px 24px; mask-image: radial-gradient(ellipse, black 20%, transparent 85%); }
+.arena-active { cursor: crosshair; }
+.game-start-prompt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 9px; text-align: center; padding: 20px; }
+.prompt-icon { display: grid; place-items: center; width: 47px; height: 47px; border-radius: 13px; color: var(--accent); background: var(--accent-soft); font-size: 20px; margin-bottom: 5px; }
+.game-start-prompt strong { font-size: 16px; }
+.game-start-prompt small { color: var(--muted); font-size: 11px; }
+.game-bug { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; transform: translate(-50%, -50%); border: 1px solid var(--accent); border-radius: 14px; color: white; background: var(--accent); box-shadow: 0 8px 22px rgba(113,100,197,.3); font-size: 19px; cursor: crosshair; transition: left .12s ease, top .12s ease, transform .12s ease; z-index: 2; }
+.game-bug:hover { transform: translate(-50%, -50%) scale(1.12) rotate(-8deg); }
+.arena-corner { position: absolute; width: 15px; height: 15px; border-color: var(--accent); opacity: .7; }
+.corner-tl { top: 14px; left: 14px; border-top: 1px solid; border-left: 1px solid; }
+.corner-br { right: 14px; bottom: 14px; border-right: 1px solid; border-bottom: 1px solid; }
+@media (max-width: 900px) {
+  .playground-section { grid-template-columns: 1fr; }
+  .playground-intro > p { max-width: 560px; }
+  .game-stats { max-width: 480px; }
+  .activity-heading { align-items: start; flex-direction: column; }
+}
+@media (max-width: 640px) {
+  .skills-proof { padding: 22px 18px; }
+  .skills-proof-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .skills-proof-grid { grid-template-columns: 1fr; gap: 19px; }
+  .contribution-card { padding: 19px 15px 16px; }
+  .contribution-card-top { align-items: flex-start; flex-direction: column; }
+  .contribution-image-wrap { margin-right: -2px; }
+  .contribution-card-bottom { align-items: flex-start; flex-direction: column; }
+  .game-board-top, .game-board-bottom { align-items: flex-start; flex-direction: column; }
+  .game-arena { min-height: 290px; height: 300px; }
+}
