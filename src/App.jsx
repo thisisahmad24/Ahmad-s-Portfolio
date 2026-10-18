@@ -22,7 +22,7 @@ const projects = [
     description: "An AI interview practice platform with voice-based questions, adaptive difficulty, role-specific flows, and LLM-assisted evaluation.",
     stack: ["React", "Node.js", "MongoDB", "Socket.io", "Groq", "Whisper"], icon: <FaRobot />, tone: "lavender",
     category: "AI / ML", thumbnail: "/project-thumbnails/virqa.svg", thumbnailAlt: "VIRQA interview workspace concept with voice interface and evaluation panel",
-    href: "https://github.com/thisisahmad24", featured: true,
+    featured: true,
   },
   {
     number: "02", title: "SnapSave Pro", type: "Full-stack media product",
@@ -267,6 +267,7 @@ function App() {
               <article className="skill-card" key={group.title}>
                 <div className="skill-card-top"><span className="skill-icon">{group.icon}</span><span className="skill-index">0{index + 1}</span></div>
                 <h3>{group.title}</h3>
+                <p className="skill-subtitle">{group.subtitle}</p>
                 <div className="skill-tags">{group.skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
               </article>
             ))}
@@ -340,7 +341,7 @@ function App() {
                   <div className="project-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
                   <div className="project-footer">
                     <span className="project-status"><span></span> FEATURED WORK</span>
-                    {project.href ? <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>View repository <FiArrowUpRight /></a> : <a href={profile.github} target="_blank" rel="noreferrer" aria-label={`Explore ${project.title} and other repositories on GitHub`}>Explore work <FiArrowUpRight /></a>}
+                    {project.href ? <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>View on GitHub <FiArrowUpRight /></a> : <a href={profile.github} target="_blank" rel="noreferrer" aria-label={`Explore ${project.title} and other repositories on GitHub`}>Explore work <FiArrowUpRight /></a>}
                   </div>
                 </div>
               </article>
