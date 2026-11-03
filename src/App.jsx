@@ -30,28 +30,28 @@ const projects = [
     title: "TransferIQ",
     description: "A Premier League transfer-fee estimation pipeline using historical FPL performance, player attributes, feature engineering, regression models, and a Streamlit dashboard.",
     stack: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Pytest"],
-    category: "AI / Data", thumbnail: "/project-thumbnails/transferiq.svg", thumbnailAlt: "TransferIQ analytics dashboard concept with estimated player value and trend chart",
+    category: "AI / ML", thumbnail: "/project-thumbnails/transferiq.svg", thumbnailAlt: "TransferIQ analytics dashboard concept with estimated player value and trend chart",
     href: "https://github.com/thisisahmad24/transfer-iq",
   },
   {
     title: "Helmet Detection & E-Challan",
     description: "A YOLOv8 and OpenCV system designed to detect helmet violations, annotate evidence frames, and log potential violations for a traffic-enforcement workflow.",
     stack: ["Python", "YOLOv8", "OpenCV", "Computer Vision"],
-    category: "AI / Data", thumbnail: "/project-thumbnails/helmet-challan.svg", thumbnailAlt: "Computer vision preview showing a rider detection bounding box and violation status",
+    category: "AI / ML", thumbnail: "/project-thumbnails/helmet-challan.svg", thumbnailAlt: "Computer vision preview showing a rider detection bounding box and violation status",
     href: "https://github.com/thisisahmad24/helmet-challan-system",
   },
   {
     title: "Movie Review Sentiment Analyzer",
     description: "A Flask application that classifies IMDb movie reviews as positive or negative with a trained BiLSTM model and lets users search and manage saved reviews.",
     stack: ["Python", "Flask", "TensorFlow", "BiLSTM", "NLP"],
-    category: "AI / Data", thumbnail: "/project-thumbnails/sentiment-analyzer.svg", thumbnailAlt: "Sentiment analysis dashboard concept showing a review and positive prediction confidence",
+    category: "AI / ML", thumbnail: "/project-thumbnails/sentiment-analyzer.svg", thumbnailAlt: "Sentiment analysis dashboard concept showing a review and positive prediction confidence",
     href: "https://github.com/thisisahmad24/MovieReviews-SentimentApp-Python",
   },
   {
     title: "Multi-Agent Workflows",
     description: "An experiment in coordinating specialized local LLM agents for task decomposition, research, coding, and review using Ollama with LangChain/LangGraph.",
     stack: ["Python", "Ollama", "LangChain", "LangGraph"],
-    category: "AI / Data", thumbnail: "/project-thumbnails/multi-agent.svg", thumbnailAlt: "Multi-agent workflow diagram preview showing connected research, coding, review, planning, and result nodes",
+    category: "AI / ML", thumbnail: "/project-thumbnails/multi-agent.svg", thumbnailAlt: "Multi-agent workflow diagram preview showing connected research, coding, review, planning, and result nodes",
     href: "https://github.com/thisisahmad24/multi-agent-workflows",
   },
   {
@@ -126,10 +126,9 @@ function App() {
     window.localStorage.setItem("ahmad-theme", next ? "dark" : "light");
   };
 
-  const filters = ["All", "AI / Data", "Full-stack", "Backend / APIs", "QA / Testing", "University projects"];
+  const filters = ["All", "AI / ML", "Full-stack", "Backend / APIs", "QA / Testing", "University projects"];
   const visibleProjects = projects.filter((project) =>
-    activeFilter === "All" || project.category === activeFilter ||
-    (activeFilter === "AI / Data" && project.category === "AI / ML")
+    activeFilter === "All" || project.category === activeFilter
   );
   const closeMenu = () => setMenuOpen(false);
 
