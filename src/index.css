@@ -49,7 +49,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 }
 .brand-mark span, .footer-brand span { color: #fecaca; }
 .nav-links { display: flex; align-items: center; gap: 28px; margin-left: auto; }
-.nav-links a, .site-footer > a:last-child { color: var(--muted); font-size: 13px; transition: color .18s ease; }
+.nav-links a, .site-footer > a { color: var(--muted); transition: color .18s ease; }
 .nav-links a:hover, .site-footer a:hover { color: var(--text); }
 .theme-toggle, .mobile-menu-toggle {
   display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line);
@@ -123,12 +123,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .timeline-company { margin: 0; color: var(--muted); font-size: 12px; }
 .timeline-detail { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .about-section { background: var(--surface); }
-.about-layout { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+.about-layout { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
 .about-copy { max-width: 700px; }
 .large-copy { margin: 0 0 14px; font-size: clamp(21px, 2.5vw, 28px); line-height: 1.35; letter-spacing: -.04em; }
 .about-copy > p:not(.large-copy) { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
-.about-portrait { overflow: hidden; aspect-ratio: 4 / 5; border-radius: 12px; background: var(--surface-raised); }
-.about-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
 .education-card { display: flex; flex-direction: column; gap: 7px; margin-top: 28px; padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
 .education-card strong { font-size: 14px; }
 .education-card span { color: var(--muted); font-size: 12px; }
@@ -172,8 +170,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   .section { padding: 64px 22px; }
   .experience-columns, .about-layout, .outside-list { grid-template-columns: 1fr; }
   .about-layout { gap: 24px; }
-  .about-portrait { display: none; }
-  .contact-section { flex-direction: column; gap: 26px; }
+    .contact-section { flex-direction: column; gap: 26px; }
   .contact-links { width: 100%; }
   .site-footer { padding: 18px 22px; }
 }
