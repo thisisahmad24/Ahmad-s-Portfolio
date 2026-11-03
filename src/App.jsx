@@ -3,7 +3,6 @@ import {
   FiArrowUpRight, FiDownload, FiGithub, FiLinkedin, FiMail,
   FiMenu, FiMoon, FiSun, FiX
 } from "react-icons/fi";
-import { FaBrain, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
 import Headshot from "./images/Ahmad.png";
 
 const profile = {
@@ -17,85 +16,85 @@ const profile = {
 
 const projects = [
   {
-    number: "01", title: "VIRQA", type: "AI interview platform · Final-year project",
+    title: "VIRQA", type: "AI interview platform · Final-year project",
     description: "An AI interview practice platform with voice-based questions, adaptive difficulty, role-specific flows, and LLM-assisted evaluation.",
-    stack: ["React", "Node.js", "MongoDB", "Socket.io", "Groq", "Whisper"], icon: <FaRobot />, tone: "lavender",
+    stack: ["React", "Node.js", "MongoDB", "Socket.io", "Groq", "Whisper"],
     category: "AI / ML", thumbnail: "/project-thumbnails/virqa.svg", thumbnailAlt: "VIRQA interview workspace concept with voice interface and evaluation panel",
     featured: true,
   },
   {
-    number: "02", title: "SnapSave Pro", type: "Full-stack media product",
+    title: "SnapSave Pro", type: "Full-stack media product",
     description: "An Instagram-focused media downloader with a Next.js frontend, FastAPI extraction service, MongoDB-backed quotas, and account features.",
-    stack: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "JWT"], icon: <FiGlobe />, tone: "mint",
+    stack: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "JWT"],
     category: "Full-stack", thumbnail: "/project-thumbnails/snapsave-pro.svg", thumbnailAlt: "SnapSave Pro media workspace preview with media cards and download controls",
-    href: "https://github.com/thisisahmad24/snap-save-pro", featured: true,
+    href: "https://github.com/thisisahmad24/snap-save-pro",
   },
   {
-    number: "03", title: "TransferIQ", type: "Machine learning · Sports analytics",
+    title: "TransferIQ", type: "Machine learning · Sports analytics",
     description: "A Premier League transfer-fee estimation pipeline using historical FPL performance, player attributes, feature engineering, regression models, and a Streamlit dashboard.",
-    stack: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Pytest"], icon: <FaBrain />, tone: "blue",
+    stack: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Pytest"],
     category: "AI / Data", thumbnail: "/project-thumbnails/transferiq.svg", thumbnailAlt: "TransferIQ analytics dashboard concept with estimated player value and trend chart",
-    href: "https://github.com/thisisahmad24/transfer-iq", featured: true,
+    href: "https://github.com/thisisahmad24/transfer-iq",
   },
   {
-    number: "04", title: "Helmet Detection & E-Challan", type: "Computer vision · Road safety",
+    title: "Helmet Detection & E-Challan", type: "Computer vision · Road safety",
     description: "A YOLOv8 and OpenCV system designed to detect helmet violations, annotate evidence frames, and log potential violations for a traffic-enforcement workflow.",
-    stack: ["Python", "YOLOv8", "OpenCV", "Computer Vision"], icon: <FaShieldAlt />, tone: "peach",
+    stack: ["Python", "YOLOv8", "OpenCV", "Computer Vision"],
     category: "AI / Data", thumbnail: "/project-thumbnails/helmet-challan.svg", thumbnailAlt: "Computer vision preview showing a rider detection bounding box and violation status",
     href: "https://github.com/thisisahmad24/helmet-challan-system",
   },
   {
-    number: "05", title: "Movie Review Sentiment Analyzer", type: "NLP · Web application",
+    title: "Movie Review Sentiment Analyzer", type: "NLP · Web application",
     description: "A Flask application that classifies IMDb movie reviews as positive or negative with a trained BiLSTM model and lets users search and manage saved reviews.",
-    stack: ["Python", "Flask", "TensorFlow", "BiLSTM", "NLP"], icon: <FaBrain />, tone: "lavender",
+    stack: ["Python", "Flask", "TensorFlow", "BiLSTM", "NLP"],
     category: "AI / Data", thumbnail: "/project-thumbnails/sentiment-analyzer.svg", thumbnailAlt: "Sentiment analysis dashboard concept showing a review and positive prediction confidence",
     href: "https://github.com/thisisahmad24/MovieReviews-SentimentApp-Python",
   },
   {
-    number: "06", title: "Multi-Agent Workflows", type: "Local AI · Agent orchestration",
+    title: "Multi-Agent Workflows", type: "Local AI · Agent orchestration",
     description: "An experiment in coordinating specialized local LLM agents for task decomposition, research, coding, and review using Ollama with LangChain/LangGraph.",
-    stack: ["Python", "Ollama", "LangChain", "LangGraph"], icon: <FaRobot />, tone: "mint",
+    stack: ["Python", "Ollama", "LangChain", "LangGraph"],
     category: "AI / Data", thumbnail: "/project-thumbnails/multi-agent.svg", thumbnailAlt: "Multi-agent workflow diagram preview showing connected research, coding, review, planning, and result nodes",
     href: "https://github.com/thisisahmad24/multi-agent-workflows",
   },
   {
-    number: "07", title: "Authentication REST API", type: "Backend · Application security",
+    title: "Authentication REST API", type: "Backend · Application security",
     description: "A Node.js and Express authentication service with password hashing, email verification, rotating refresh tokens, password resets, account lockout, and role-based access control.",
-    stack: ["Node.js", "Express", "MongoDB", "JWT", "Jest", "Docker"], icon: <FaShieldAlt />, tone: "blue",
+    stack: ["Node.js", "Express", "MongoDB", "JWT", "Jest", "Docker"],
     category: "Backend / APIs", thumbnail: "/project-thumbnails/auth-service.svg", thumbnailAlt: "Authentication service console concept showing protected access, token handling, and security status",
     href: "https://github.com/thisisahmad24/auth-service",
   },
   {
-    number: "08", title: "QA Automation Portfolio", type: "Quality engineering · Test frameworks",
+    title: "QA Automation Portfolio", type: "Quality engineering · Test frameworks",
     description: "A reusable test portfolio covering Selenium and Java, Page Object Model structure, SauceDemo and Daraz scenarios, manual test design, and maintainable test utilities.",
-    stack: ["Java", "Selenium", "TestNG", "Maven", "POM"], icon: <FaTerminal />, tone: "peach",
+    stack: ["Java", "Selenium", "TestNG", "Maven", "POM"],
     category: "QA / Testing", thumbnail: "/project-thumbnails/qa-automation.svg", thumbnailAlt: "QA test report preview with passing checks and a progress indicator",
     href: "https://github.com/thisisahmad24/qa-automation-portfolio",
   },
   {
-    number: "09", title: "GoalGate", type: "Football highlights · Full-stack web",
+    title: "GoalGate", type: "Football highlights · Full-stack web",
     description: "A football fan platform concept featuring match highlights, live football data, responsive match-centre UI, and fan ratings backed by Supabase.",
-    stack: ["Next.js", "React", "Supabase", "PostgreSQL", "Framer Motion"], icon: <FiGlobe />, tone: "mint",
+    stack: ["Next.js", "React", "Supabase", "PostgreSQL", "Framer Motion"],
     category: "Full-stack", thumbnail: "/project-thumbnails/goalgate.svg", thumbnailAlt: "GoalGate football match centre preview with team score, highlights, and fan rating panels",
     href: "https://github.com/thisisahmad24/GoalGate",
   },
   {
-    number: "10", title: "Java GUI Phonebook", type: "University project · Desktop application",
+    title: "Java GUI Phonebook", type: "University project · Desktop application",
     description: "A Java Swing contact manager with add, search, edit, delete, and list actions, input validation, and local file persistence. Contributed as team lead for GUI, integration, Git, and testing.",
-    stack: ["Java", "Swing", "OOP", "File I/O", "Git"], icon: <FiCode />, tone: "lavender",
+    stack: ["Java", "Swing", "OOP", "File I/O", "Git"],
     category: "University projects", thumbnail: "/project-thumbnails/java-phonebook.svg", thumbnailAlt: "Java phonebook interface concept with contact rows and add-contact controls",
     href: "https://github.com/thisisahmad24/Java-GUI-Phonebook",
   },
 ];
 
 const skillGroups = [
-  { title: "Languages", icon: "code", skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"] },
-  { title: "Frontend", icon: "code", skills: ["React", "Next.js", "HTML5", "CSS3", "Responsive design"] },
-  { title: "Backend & APIs", icon: "terminal", skills: ["Node.js", "Express.js", "FastAPI", "Django", "Flask", "REST APIs", "Socket.io", "JWT"] },
-  { title: "AI & Machine Learning", icon: "brain", skills: ["LLM integration", "RAG", "Prompt engineering", "TensorFlow / Keras", "PyTorch", "Scikit-learn", "NLP", "BiLSTM", "LangChain / LangGraph"] },
-  { title: "Data & DevOps", icon: "database", skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Docker", "CI/CD", "Git", "GitHub", "Vercel", "Render", "Linux", "Ubuntu", "Bash"] },
-  { title: "QA & Security", icon: "shield", skills: ["Selenium WebDriver", "Playwright", "Cypress", "TestNG", "Page Object Model", "Postman", "API testing", "Test case design", "TCP/IP", "DNS", "HTTP / HTTPS", "Authentication", "Authorization", "Password hashing", "Web vulnerabilities"] },
-  { title: "Engineering & Design", icon: "code", skills: ["SDLC", "STLC", "Requirements analysis", "System design", "Technical documentation", "Debugging", "Maintenance", "Agile", "Canva", "Photoshop", "Figma", "Content writing", "Social media strategy", "Visual storytelling"] },
+  { title: "Languages", skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"] },
+  { title: "Frontend", skills: ["React", "Next.js", "HTML5", "CSS3", "Responsive design"] },
+  { title: "Backend & APIs", skills: ["Node.js", "Express.js", "FastAPI", "Django", "Flask", "REST APIs", "Socket.io", "JWT"] },
+  { title: "AI & Machine Learning", skills: ["LLM integration", "RAG", "Prompt engineering", "TensorFlow / Keras", "PyTorch", "Scikit-learn", "NLP", "BiLSTM", "LangChain / LangGraph"] },
+  { title: "Data & DevOps", skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Docker", "CI/CD", "Git", "GitHub", "Vercel", "Render", "Linux", "Ubuntu", "Bash"] },
+  { title: "QA & Security", skills: ["Selenium WebDriver", "Playwright", "Cypress", "TestNG", "Page Object Model", "Postman", "API testing", "Test case design", "TCP/IP", "DNS", "HTTP / HTTPS", "Authentication", "Authorization", "Password hashing", "Web vulnerabilities"] },
+  { title: "Engineering & Design", skills: ["SDLC", "STLC", "Requirements analysis", "System design", "Technical documentation", "Debugging", "Maintenance", "Agile", "Canva", "Photoshop", "Figma", "Content writing", "Social media strategy", "Visual storytelling"] },
 ];
 
 const professionalExperience = [
@@ -186,7 +185,7 @@ function App() {
           </div>
           <div className="projects-grid">
             {visibleProjects.map((project) => (
-              <article className="project-card" key={project.number}>
+              <article className="project-card" key={project.title}>
                 <a className="project-thumbnail" href={project.href || profile.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}>
                   <img src={project.thumbnail} alt={project.thumbnailAlt} loading="lazy" />
                 </a>
