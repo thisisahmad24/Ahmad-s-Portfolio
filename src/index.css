@@ -63,7 +63,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   background: radial-gradient(ellipse at 76% 48%, rgba(127, 29, 29, .18), transparent 42%), var(--bg);
 }
 .hero-content { max-width: 660px; }
-.hero-kicker { margin: 0 0 18px; color: var(--accent); font-size: 11px; font-weight: 650; letter-spacing: 1.8px; }
 .hero-content h1 { margin: 0; font-size: clamp(48px, 7vw, 88px); line-height: 1.02; letter-spacing: -.065em; font-weight: 680; }
 .heading-dot { color: var(--accent); }
 .hero-description { margin: 22px 0 28px; color: var(--muted); font-size: clamp(15px, 1.7vw, 18px); }
@@ -103,9 +102,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .project-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
 .project-card:hover .project-thumbnail img { transform: scale(1.025); }
 .project-body { padding: 18px; }
-.project-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.project-title-row h3 { margin: 0; font-size: 16px; line-height: 1.35; letter-spacing: -.3px; }
-.project-title-row > span { flex-shrink: 0; color: var(--muted); font-size: 10px; }
+.project-body > h3 { margin: 0; font-size: 16px; line-height: 1.35; letter-spacing: -.3px; }
 .project-description { margin: 12px 0 16px; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .project-stack, .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .project-stack span, .skill-tags span {
@@ -176,7 +173,6 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 }
 @media (max-width: 480px) {
   .projects-grid, .skills-grid { grid-template-columns: 1fr; }
-  .project-title-row { flex-direction: column; gap: 6px; }
   .experience-track { padding: 18px; }
   .site-footer { flex-wrap: wrap; }
   .site-footer > span { margin-left: 0; }
