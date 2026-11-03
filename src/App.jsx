@@ -6,8 +6,6 @@ import {
 import Headshot from "./images/Ahmad.png";
 
 const profile = {
-  name: "Ahmad Hassan",
-  role: "Software Engineer",
   email: "thisisahmad07@gmail.com",
   github: "https://github.com/thisisahmad24",
   linkedin: "https://www.linkedin.com/in/ahmad-hassan-ai-engineer",
@@ -16,70 +14,69 @@ const profile = {
 
 const projects = [
   {
-    title: "VIRQA", type: "AI interview platform · Final-year project",
+    title: "VIRQA",
     description: "An AI interview practice platform with voice-based questions, adaptive difficulty, role-specific flows, and LLM-assisted evaluation.",
     stack: ["React", "Node.js", "MongoDB", "Socket.io", "Groq", "Whisper"],
     category: "AI / ML", thumbnail: "/project-thumbnails/virqa.svg", thumbnailAlt: "VIRQA interview workspace concept with voice interface and evaluation panel",
-    featured: true,
   },
   {
-    title: "SnapSave Pro", type: "Full-stack media product",
+    title: "SnapSave Pro",
     description: "An Instagram-focused media downloader with a Next.js frontend, FastAPI extraction service, MongoDB-backed quotas, and account features.",
     stack: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "JWT"],
     category: "Full-stack", thumbnail: "/project-thumbnails/snapsave-pro.svg", thumbnailAlt: "SnapSave Pro media workspace preview with media cards and download controls",
     href: "https://github.com/thisisahmad24/snap-save-pro",
   },
   {
-    title: "TransferIQ", type: "Machine learning · Sports analytics",
+    title: "TransferIQ",
     description: "A Premier League transfer-fee estimation pipeline using historical FPL performance, player attributes, feature engineering, regression models, and a Streamlit dashboard.",
     stack: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Pytest"],
     category: "AI / Data", thumbnail: "/project-thumbnails/transferiq.svg", thumbnailAlt: "TransferIQ analytics dashboard concept with estimated player value and trend chart",
     href: "https://github.com/thisisahmad24/transfer-iq",
   },
   {
-    title: "Helmet Detection & E-Challan", type: "Computer vision · Road safety",
+    title: "Helmet Detection & E-Challan",
     description: "A YOLOv8 and OpenCV system designed to detect helmet violations, annotate evidence frames, and log potential violations for a traffic-enforcement workflow.",
     stack: ["Python", "YOLOv8", "OpenCV", "Computer Vision"],
     category: "AI / Data", thumbnail: "/project-thumbnails/helmet-challan.svg", thumbnailAlt: "Computer vision preview showing a rider detection bounding box and violation status",
     href: "https://github.com/thisisahmad24/helmet-challan-system",
   },
   {
-    title: "Movie Review Sentiment Analyzer", type: "NLP · Web application",
+    title: "Movie Review Sentiment Analyzer",
     description: "A Flask application that classifies IMDb movie reviews as positive or negative with a trained BiLSTM model and lets users search and manage saved reviews.",
     stack: ["Python", "Flask", "TensorFlow", "BiLSTM", "NLP"],
     category: "AI / Data", thumbnail: "/project-thumbnails/sentiment-analyzer.svg", thumbnailAlt: "Sentiment analysis dashboard concept showing a review and positive prediction confidence",
     href: "https://github.com/thisisahmad24/MovieReviews-SentimentApp-Python",
   },
   {
-    title: "Multi-Agent Workflows", type: "Local AI · Agent orchestration",
+    title: "Multi-Agent Workflows",
     description: "An experiment in coordinating specialized local LLM agents for task decomposition, research, coding, and review using Ollama with LangChain/LangGraph.",
     stack: ["Python", "Ollama", "LangChain", "LangGraph"],
     category: "AI / Data", thumbnail: "/project-thumbnails/multi-agent.svg", thumbnailAlt: "Multi-agent workflow diagram preview showing connected research, coding, review, planning, and result nodes",
     href: "https://github.com/thisisahmad24/multi-agent-workflows",
   },
   {
-    title: "Authentication REST API", type: "Backend · Application security",
+    title: "Authentication REST API",
     description: "A Node.js and Express authentication service with password hashing, email verification, rotating refresh tokens, password resets, account lockout, and role-based access control.",
     stack: ["Node.js", "Express", "MongoDB", "JWT", "Jest", "Docker"],
     category: "Backend / APIs", thumbnail: "/project-thumbnails/auth-service.svg", thumbnailAlt: "Authentication service console concept showing protected access, token handling, and security status",
     href: "https://github.com/thisisahmad24/auth-service",
   },
   {
-    title: "QA Automation Portfolio", type: "Quality engineering · Test frameworks",
+    title: "QA Automation Portfolio",
     description: "A reusable test portfolio covering Selenium and Java, Page Object Model structure, SauceDemo and Daraz scenarios, manual test design, and maintainable test utilities.",
     stack: ["Java", "Selenium", "TestNG", "Maven", "POM"],
     category: "QA / Testing", thumbnail: "/project-thumbnails/qa-automation.svg", thumbnailAlt: "QA test report preview with passing checks and a progress indicator",
     href: "https://github.com/thisisahmad24/qa-automation-portfolio",
   },
   {
-    title: "GoalGate", type: "Football highlights · Full-stack web",
+    title: "GoalGate",
     description: "A football fan platform concept featuring match highlights, live football data, responsive match-centre UI, and fan ratings backed by Supabase.",
     stack: ["Next.js", "React", "Supabase", "PostgreSQL", "Framer Motion"],
     category: "Full-stack", thumbnail: "/project-thumbnails/goalgate.svg", thumbnailAlt: "GoalGate football match centre preview with team score, highlights, and fan rating panels",
     href: "https://github.com/thisisahmad24/GoalGate",
   },
   {
-    title: "Java GUI Phonebook", type: "University project · Desktop application",
+    title: "Java GUI Phonebook",
     description: "A Java Swing contact manager with add, search, edit, delete, and list actions, input validation, and local file persistence. Contributed as team lead for GUI, integration, Git, and testing.",
     stack: ["Java", "Swing", "OOP", "File I/O", "Git"],
     category: "University projects", thumbnail: "/project-thumbnails/java-phonebook.svg", thumbnailAlt: "Java phonebook interface concept with contact rows and add-contact controls",
@@ -240,7 +237,6 @@ function App() {
                 <span>2022 — 2026 · CGPA 3.26 / 4.00</span>
               </div>
             </div>
-            <div className="about-portrait"><img src={Headshot} alt="Ahmad Hassan" loading="lazy" /></div>
           </div>
 
           <h3 className="subsection-title">Skills</h3>
@@ -262,10 +258,7 @@ function App() {
         </section>
 
         <section className="section contact-section" id="contact">
-          <div>
-            <h2>Contact</h2>
-            <p className="contact-intro">Have an opportunity or project? Get in touch.</p>
-          </div>
+          <h2>Contact</h2>
           <div className="contact-links">
             <a href={`mailto:${profile.email}`}><FiMail /> {profile.email} <FiArrowUpRight /></a>
             <a href={profile.github} target="_blank" rel="noreferrer"><FiGithub /> GitHub <FiArrowUpRight /></a>
@@ -277,7 +270,6 @@ function App() {
       <footer className="site-footer">
         <a className="footer-brand" href="#home">A<span>.</span></a>
         <span>© {new Date().getFullYear()} Ahmad Hassan</span>
-        <a href="#home">Back to top ↑</a>
       </footer>
     </div>
   );
