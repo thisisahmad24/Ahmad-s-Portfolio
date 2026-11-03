@@ -153,9 +153,8 @@ function App() {
       <main>
         <section className="hero-section" id="home">
           <div className="hero-content">
-            <p className="hero-kicker">SOFTWARE ENGINEER</p>
             <h1>Ahmad Hassan<span className="heading-dot">.</span></h1>
-            <p className="hero-description">AI/ML · Full-stack development · Quality engineering</p>
+            <p className="hero-description">Software Engineer · AI/ML · Full-stack · Quality Engineering</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">View projects <FiArrowUpRight /></a>
               <a className="button button-secondary" href={profile.resume} target="_blank" rel="noreferrer"><FiDownload /> Résumé</a>
@@ -186,7 +185,7 @@ function App() {
                   <img src={project.thumbnail} alt={project.thumbnailAlt} loading="lazy" />
                 </a>
                 <div className="project-body">
-                  <div className="project-title-row"><h3>{project.title}</h3><span>{project.category}</span></div>
+                  <h3>{project.title}</h3>
                   <p className="project-description">{project.description}</p>
                   <div className="project-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
                   <a className="project-link" href={project.href || profile.github} target="_blank" rel="noreferrer">View project <FiArrowUpRight /></a>
