@@ -312,7 +312,7 @@ function App() {
           </div>
           <div className="experience-columns">
             <div className="experience-track">
-              <div className="track-heading"><span className="track-icon"><FiCode /></span><div><h3>Professional experience</h3><p>Engineering, delivery & quality</p></div><span className="track-count">02 ROLES</span></div>
+              <div className="track-heading"><span className="track-icon"><FiCode /></span><div><h3>Professional experience</h3><p>Engineering, delivery & quality</p></div><span className="track-count">03 ROLES</span></div>
               <div className="timeline">
                 {professionalExperience.map((item, index) => <article className="timeline-item" key={item.role}><div className="timeline-marker"><span></span></div><div className="timeline-content"><span className="timeline-date">{item.date}</span><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div><span className="timeline-number">0{index + 1}</span></article>)}
               </div>
