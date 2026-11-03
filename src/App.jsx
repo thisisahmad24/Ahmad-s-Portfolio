@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import {
   FiArrowDownRight, FiArrowUpRight, FiCheck, FiCode,
   FiDownload, FiGithub, FiGlobe, FiLayers, FiLinkedin, FiMail,
-  FiMenu, FiMoon, FiSend, FiSun, FiX, FiPlay, FiZap, FiUsers, FiImage, FiMapPin
+  FiMenu, FiMoon, FiSend, FiSun, FiX, FiUsers, FiImage, FiMapPin
 } from "react-icons/fi";
-import { FaBrain, FaBug, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
+import { FaBrain, FaDatabase, FaRobot, FaShieldAlt, FaTerminal } from "react-icons/fa";
 import Headshot from "./images/Ahmad.png";
 
 const profile = {
   name: "Ahmad Hassan",
-  role: "Software Engineer · Backend Developer · AI/ML",
+  role: "Software Engineer · AI/ML · Full-Stack · Quality Engineering",
   email: "thisisahmad07@gmail.com",
   github: "https://github.com/thisisahmad24",
   linkedin: "https://www.linkedin.com/in/ahmad-hassan-ai-engineer",
@@ -93,14 +93,18 @@ const skillGroups = [
   { icon: <FiCode />, title: "Programming Languages", subtitle: "Core programming & data querying", skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"] },
   { icon: <FiLayers />, title: "Frontend & UI", subtitle: "Interfaces and product experience", skills: ["React", "Next.js", "HTML5", "CSS3", "Responsive design"] },
   { icon: <FaTerminal />, title: "Backend & APIs", subtitle: "Services, integration & auth", skills: ["Node.js", "Express.js", "FastAPI", "Django", "Flask", "REST APIs", "Socket.io", "JWT"] },
-  { icon: <FaBrain />, title: "AI & Machine Learning", subtitle: "Models, NLP & LLM workflows", skills: ["LLM integration", "RAG concepts", "Prompt engineering", "TensorFlow / Keras", "PyTorch", "Scikit-learn", "NLP", "BiLSTM", "LangChain / LangGraph"] },
+  { icon: <FaBrain />, title: "AI & Machine Learning", subtitle: "Models, NLP & LLM workflows", skills: ["LLM integration", "RAG", "Prompt engineering", "TensorFlow / Keras", "PyTorch", "Scikit-learn", "NLP", "BiLSTM", "LangChain / LangGraph"] },
   { icon: <FaDatabase />, title: "Databases & DevOps", subtitle: "Data persistence and delivery", skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Docker", "Git / GitHub", "Vercel", "Render"] },
   { icon: <FaShieldAlt />, title: "QA & Test Automation", subtitle: "Reliable releases through validation", skills: ["Selenium WebDriver", "Playwright", "Cypress", "TestNG", "Page Object Model", "Postman", "API testing", "Test case design"] },
-  { icon: <FiGlobe />, title: "Design & Collaboration", subtitle: "Communication, teamwork & visual craft", skills: ["Figma", "Canva", "Photoshop", "Git workflows", "Agile collaboration", "Technical documentation"] },
+  { icon: <FaTerminal />, title: "Systems & DevOps", subtitle: "Development environments and delivery", skills: ["Linux", "Ubuntu", "Bash", "CLI", "Docker", "CI/CD", "Git", "GitHub", "Vercel", "Render"] },
+  { icon: <FaShieldAlt />, title: "Networking & Information Security", subtitle: "Protocols, application security and secure development", skills: ["TCP/IP", "DNS", "HTTP / HTTPS", "Ports & protocols", "Authentication", "Authorization", "Password hashing", "Web vulnerabilities"] },
+  { icon: <FiLayers />, title: "Software Engineering Practice", subtitle: "Engineering across the product lifecycle", skills: ["SDLC", "STLC", "Requirements analysis", "System design", "Technical documentation", "Debugging", "Maintenance", "Agile workflows"] },
+  { icon: <FiGlobe />, title: "Creative Media & Communication", subtitle: "Digital content, design and community engagement", skills: ["Content writing", "Social media strategy", "Canva", "Photoshop", "Figma", "Brand communication", "Visual storytelling"] },
 ];
 
 const professionalExperience = [
-  { date: "JUL — AUG 2026", role: "SQA Intern", company: "DaFi Labs · Remote", detail: "Worked on functional and manual testing, test-scenario design, defect documentation, API checks with Postman, and end-to-end automation with Playwright." },
+  { date: "JUL — AUG 2026", role: "SQA Intern", company: "DaFi Labs · Remote", detail: "Performed functional and manual testing, designed test scenarios, documented defects, validated APIs with Postman, and worked with Playwright for end-to-end automation." },
+  { date: "APR — MAY 2026", role: "Backend Engineering Intern", company: "Digitech Offerings · Remote", detail: "Worked on backend engineering tasks, server-side application logic, and API-focused development workflows." },
   { date: "NOV — DEC 2025", role: "Frontend Developer Intern", company: "Apexcify Technologies · Remote", detail: "Built responsive React interfaces, implemented reusable UI components, and supported cross-browser compatibility in a collaborative development workflow." },
 ];
 
@@ -125,14 +129,9 @@ function App() {
   const [dark, setDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
-  const [gameActive, setGameActive] = useState(false);
-  const [gameTime, setGameTime] = useState(15);
-  const [gameScore, setGameScore] = useState(0);
-  const [bugPosition, setBugPosition] = useState({ x: 48, y: 45 });
-
   useEffect(() => {
     const stored = window.localStorage.getItem("ahmad-theme");
-    const initialDark = stored ? stored === "dark" : false;
+    const initialDark = stored ? stored === "dark" : true;
     setDark(initialDark);
     document.documentElement.dataset.theme = initialDark ? "dark" : "light";
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -140,34 +139,6 @@ function App() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    if (!gameActive) return undefined;
-    const timer = window.setInterval(() => {
-      setGameTime((remaining) => {
-        if (remaining <= 1) {
-          window.clearInterval(timer);
-          setGameActive(false);
-          return 0;
-        }
-        return remaining - 1;
-      });
-    }, 1000);
-    return () => window.clearInterval(timer);
-  }, [gameActive]);
-
-  const startGame = () => {
-    setGameScore(0);
-    setGameTime(15);
-    setBugPosition({ x: 48, y: 45 });
-    setGameActive(true);
-  };
-
-  const catchBug = () => {
-    if (!gameActive) return;
-    setGameScore((score) => score + 1);
-    setBugPosition({ x: 8 + Math.random() * 82, y: 12 + Math.random() * 72 });
-  };
 
   const toggleTheme = () => {
     const next = !dark;
@@ -213,7 +184,7 @@ function App() {
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
-          { [["Home", "#home"], ["About", "#about"], ["Skills", "#skills"], ["Projects", "#projects"], ["Play", "#playground"], ["Experience", "#experience"], ["Education", "#university"]].map(([label, href]) => (
+          { [["Home", "#home"], ["About", "#about"], ["Engineering", "#skills"], ["Projects", "#projects"], ["Experience", "#experience"], ["Beyond Code", "#beyond-code"], ["Education", "#university"]].map(([label, href]) => (
             <a key={label} href={href} onClick={closeMenu}>{label}</a>
           ))}
           <a className="nav-contact" href="#contact" onClick={closeMenu}>Contact <FiArrowUpRight /></a>
@@ -230,7 +201,7 @@ function App() {
             <div className="availability"><span className="availability-dot"></span> OPEN TO OPPORTUNITIES</div>
             <p className="hero-kicker">HELLO, I’M AHMAD HASSAN</p>
             <h1>I build <span className="serif-accent">intelligent</span><br className="desktop-break" /> digital experiences<span className="heading-dot">.</span></h1>
-            <p className="hero-description">Software engineer working across AI/ML, backend systems, and full-stack products. I turn complex ideas into useful, reliable software.</p>
+            <p className="hero-description">Software engineer building full-stack products, AI-powered applications, and dependable systems — from requirements and development to testing and delivery.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">Explore my work <FiArrowUpRight /></a>
               <a className="button button-secondary" href={profile.resume} target="_blank" rel="noreferrer"><FiDownload /> Download résumé</a>
@@ -264,17 +235,17 @@ function App() {
         <section className="section about-section" id="about">
           <div className="about-layout">
             <div className="about-side">
-              <SectionHeading eyebrow="A LITTLE ABOUT ME" title={<>Engineer by craft.<br /><em>Curious by nature.</em></>} />
+              <SectionHeading eyebrow="PROFILE / 01" title={<>Software engineering.<br /><em>From idea to release.</em></>} />
               <div className="about-portrait"><img src={Headshot} alt="Ahmad Hassan" loading="lazy" /><span className="portrait-caption">LAHORE, PAKISTAN <span>↗</span></span></div>
             </div>
             <div className="about-copy">
-              <p className="large-copy">I’m a software engineering graduate who enjoys building technology that is both <span>thoughtful and practical.</span></p>
-              <p>My work spans AI-powered applications, backend APIs, web development, and software quality assurance. I enjoy taking a problem from its first sketch to a working product—with careful engineering behind the scenes.</p>
-              <p>Whether I’m integrating an LLM into a voice-driven workflow or designing a reliable API, I care about maintainability, clear user experiences, and the details that make software dependable.</p>
+              <p className="large-copy">I build <span>software, intelligent applications, and reliable digital products.</span></p>
+              <p>I’m a Software Engineering graduate from the University of Central Punjab. My work covers the complete development lifecycle: understanding requirements, analysing problems, designing solutions, building applications, testing functionality, and maintaining software.</p>
+              <p>I bring together full-stack development, AI/ML engineering, software quality assurance, and practical systems knowledge. I also work across creative media and community initiatives, bringing communication and teamwork into technical projects.</p>
               <div className="about-facts">
                 <div><span className="fact-number">2026</span><span className="fact-label">Software Engineering<br />graduate</span></div>
-                <div><span className="fact-number">AI +</span><span className="fact-label">Full-stack product<br />development</span></div>
-                <div><span className="fact-number">QA</span><span className="fact-label">Quality-first<br />engineering</span></div>
+                <div><span className="fact-number">5M+</span><span className="fact-label">Digital reach<br />in the past month</span></div>
+                <div><span className="fact-number">U-23</span><span className="fact-label">Competitive<br />football</span></div>
               </div>
               <a className="text-link" href={profile.resume} target="_blank" rel="noreferrer">More about my experience <FiArrowUpRight /></a>
             </div>
@@ -282,7 +253,7 @@ function App() {
         </section>
 
         <section className="section skills-section" id="skills">
-          <SectionHeading eyebrow="MY TOOLKIT" title={<>Skills that turn ideas<br /><em>into working software.</em></>} copy="A practical mix of development, AI, data, and testing tools—chosen to solve the problem at hand." />
+          <SectionHeading eyebrow="ENGINEERING CAPABILITIES / 02" title={<>Skills that turn ideas<br /><em>into working software.</em></>} copy="A practical mix of development, AI, data, and testing tools—chosen to solve the problem at hand." />
           <div className="skills-grid">
             {skillGroups.map((group, index) => (
               <article className="skill-card" key={group.title}>
@@ -303,32 +274,9 @@ function App() {
           </div>
         </section>
 
-        <section className="section playground-section" id="playground">
-          <div className="playground-intro">
-            <span className="eyebrow">A TINY INTERACTIVE DETOUR</span>
-            <h2>Can you <em>catch the bug?</em></h2>
-            <p>A 15-second mini challenge. Start the sprint and click the moving bug as many times as you can before the timer runs out.</p>
-            <div className="game-stats">
-              <div><span className="game-stat-label">SCORE</span><strong>{gameScore.toString().padStart(2, "0")}</strong></div>
-              <div><span className="game-stat-label">TIME LEFT</span><strong>{gameTime}<small>s</small></strong></div>
-              <div><span className="game-stat-label">STATUS</span><strong className="game-status">{gameActive ? "RUNNING" : gameTime === 0 ? "FINISHED" : "READY"}</strong></div>
-            </div>
-            <button className="button button-primary game-start" onClick={startGame}><FiPlay /> {gameActive ? "Restart sprint" : gameTime === 0 ? "Play again" : "Start sprint"}</button>
-          </div>
-          <div className="game-board" aria-label="Catch the bug game area">
-            <div className="game-board-top"><span><FiZap /> DEBUG SPRINT / 001</span><span>{gameActive ? "CLICK TO CATCH" : "READY WHEN YOU ARE"}</span></div>
-            <div className={"game-arena " + (gameActive ? "arena-active" : "")}>
-              <div className="arena-grid" aria-hidden="true"></div>
-              {gameActive ? <button className="game-bug" style={{ left: bugPosition.x + "%", top: bugPosition.y + "%" }} onClick={catchBug} aria-label="Catch the bug"><FaBug /></button> : <div className="game-start-prompt"><span className="prompt-icon"><FiCode /></span><strong>{gameTime === 0 ? "Sprint complete: " + gameScore + " bugs caught" : "Ready to debug?"}</strong><small>{gameTime === 0 ? "Run it back and beat your score." : "Start the timer to begin."}</small></div>}
-              <span className="arena-corner corner-tl"></span><span className="arena-corner corner-br"></span>
-            </div>
-            <div className="game-board-bottom"><span>STATUS: {gameActive ? "BUG DETECTED" : "SYSTEM IDLE"}</span><span>HAVE FUN. SHIP CLEAN CODE.</span></div>
-          </div>
-        </section>
-
         <section className="section projects-section" id="projects">
           <div className="projects-heading-row">
-            <SectionHeading eyebrow="SELECTED WORK" title={<>Projects with a<br /><em>purpose behind them.</em></>} copy="A selection of AI, web, and quality-engineering work. Each project starts with a problem and ends with something useful." />
+            <SectionHeading eyebrow="SELECTED WORK / 03" title={<>Projects with a<br /><em>purpose behind them.</em></>} copy="A selection of AI, web, and quality-engineering work. Each project starts with a problem and ends with something useful." />
             <a className="text-link projects-all-link" href={profile.github} target="_blank" rel="noreferrer">More on GitHub <FiArrowUpRight /></a>
           </div>
           <div className="project-filters" role="group" aria-label="Filter projects">
@@ -356,23 +304,11 @@ function App() {
             ))}
           </div>
 
-          <div className="projects-github-activity">
-            <div className="activity-heading">
-              <SectionHeading eyebrow="OPEN SOURCE & CONSISTENCY" title={<>A little more than<br /><em>lines of code.</em></>} copy="Explore my public work and contribution activity on GitHub. The heatmap is served from my GitHub username and may take a moment to load." />
-              <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">Open GitHub profile <FiArrowUpRight /></a>
-            </div>
-            <div className="contribution-card">
-              <div className="contribution-card-top"><div><span className="contribution-dot"></span><strong>Contribution activity</strong></div><span className="contribution-handle">@thisisahmad24</span></div>
-              <div className="contribution-image-wrap"><img src="https://ghchart.rshah.org/7164c5/thisisahmad24" alt="GitHub contribution heatmap for thisisahmad24" loading="lazy" /></div>
-              <div className="contribution-card-bottom"><span>Less <i className="heat heat-0"></i><i className="heat heat-1"></i><i className="heat heat-2"></i><i className="heat heat-3"></i><i className="heat heat-4"></i> More</span><a href="https://github.com/thisisahmad24" target="_blank" rel="noreferrer">View contribution details <FiArrowUpRight /></a></div>
-            </div>
-            <p className="activity-footnote">Contribution data is provided by a third-party chart service. If the image is unavailable, use the GitHub profile link above.</p>
-          </div>
         </section>
 
         <section className="section experience-section" id="experience">
           <div className="experience-section-heading">
-            <SectionHeading eyebrow="EXPERIENCE & LEADERSHIP" title={<>Growing through<br /><em>work and community.</em></>} copy="A clear view of my professional roles and the leadership work I have contributed to alongside university." />
+            <SectionHeading eyebrow="PROFESSIONAL EXPERIENCE / 04" title={<>Growing through<br /><em>work and community.</em></>} copy="A clear view of my professional roles and the leadership work I have contributed to alongside university." />
           </div>
           <div className="experience-columns">
             <div className="experience-track">
@@ -393,7 +329,7 @@ function App() {
         <section className="section university-section" id="university">
           <div className="university-intro">
             <div>
-              <SectionHeading eyebrow="BEYOND THE CLASSROOM" title={<>My university life &<br /><em>engineering journey.</em></>} copy="The experiences behind the degree: team projects, design challenges, campus communities, and learning how to build with other people." />
+              <SectionHeading eyebrow="EDUCATION / 05" title={<>My university life &<br /><em>engineering journey.</em></>} copy="The experiences behind the degree: team projects, design challenges, campus communities, and learning how to build with other people." />
             </div>
             <div className="university-education-card">
               <span className="university-mark">UCP</span>
@@ -405,13 +341,17 @@ function App() {
             <article><span className="highlight-index">02 / LEAD</span><h3>Leadership & communication</h3><p>Served as class representative and took on student-society media responsibilities—building coordination, communication, and team-delivery skills.</p></article>
             <article><span className="highlight-index">03 / PARTICIPATE</span><h3>Campus life & competitions</h3><p>Participated in coding and design challenges—including poster, branding, and UI/UX activities—and represented the university in futsal tournaments.</p></article>
           </div>
-          <div className="university-gallery-heading"><div><span className="eyebrow">MEMORIES & MILESTONES</span><h3>A space for the moments that shaped the journey.</h3></div><p>Photo slots are ready for campus, team, event, and project pictures.</p></div>
-          <div className="university-gallery">
-            <article className="university-photo-slot slot-campus"><div className="photo-slot-art"><span className="slot-orbit"></span><span className="slot-icon"><FiImage /></span></div><div className="photo-slot-caption"><span>PHOTO SLOT 01</span><strong>Campus & university life</strong><small>Add a campus or class photo</small></div></article>
-            <article className="university-photo-slot slot-team"><div className="photo-slot-art"><span className="slot-orbit"></span><span className="slot-icon"><FiUsers /></span></div><div className="photo-slot-caption"><span>PHOTO SLOT 02</span><strong>Teams, societies & events</strong><small>Add ACM, society, or event photos</small></div></article>
-            <article className="university-photo-slot slot-project"><div className="photo-slot-art"><span className="slot-orbit"></span><span className="slot-icon"><FiLayers /></span></div><div className="photo-slot-caption"><span>PHOTO SLOT 03</span><strong>Projects & prototypes</strong><small>Add screenshots or demo-day photos</small></div></article>
+        </section>
+
+        <section className="section beyond-code-section" id="beyond-code">
+          <div className="beyond-code-heading">
+            <SectionHeading eyebrow="BEYOND THE BUILD / 06" title={<>Competition, creativity<br /><em>and community.</em></>} copy="Engineering is one part of what I do. Football, creative media, and student communities have shaped how I collaborate, communicate, and lead." />
           </div>
-          <p className="university-gallery-note">These are intentional placeholders—not stock photos—so your own real university memories can be added without misrepresenting your experience.</p>
+          <div className="beyond-code-grid">
+            <article className="beyond-card"><span className="beyond-index">01 / SPORT</span><div className="beyond-symbol">⚽</div><h3>Football</h3><p>U-23 football player representing Real Lahore and Punjab University. Competitive football has strengthened my discipline, teamwork, and decision-making.</p></article>
+            <article className="beyond-card"><span className="beyond-index">02 / CREATIVE MEDIA</span><div className="beyond-symbol">◉</div><h3>Content & Digital Media</h3><p>Content creation, social media, visual design, and content writing — reaching more than 5 million people during the past month.</p></article>
+            <article className="beyond-card"><span className="beyond-index">03 / LEADERSHIP</span><div className="beyond-symbol">⌘</div><h3>Community & Leadership</h3><p>Media Director at ACM UCP Chapter, Social Media Manager at Cyber Security Society UCP, and Brand Ambassador at DataCrumbs.</p></article>
+          </div>
         </section>
 
         <section className="cta-section">
@@ -478,7 +418,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="footer-brand" href="#home">A<span>.</span></a><p>Designed with care. Built with purpose.</p><span>© {new Date().getFullYear()} Ahmad Hassan</span><a className="back-to-top" href="#home">Back to top ↑</a></footer>
+      <footer className="site-footer"><a className="footer-brand" href="#home">A<span>.</span></a><p>ENGINEER / BUILD / TEST / ITERATE</p><span>© {new Date().getFullYear()} Ahmad Hassan</span><a className="back-to-top" href="#home">Back to top ↑</a></footer>
     </div>
   );
 }
