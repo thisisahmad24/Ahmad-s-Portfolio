@@ -159,11 +159,6 @@ function App() {
               <a className="button button-primary" href="#projects">View projects <FiArrowUpRight /></a>
               <a className="button button-secondary" href={profile.resume} target="_blank" rel="noreferrer"><FiDownload /> Résumé</a>
             </div>
-            <div className="hero-socials">
-              <a href={profile.github} target="_blank" rel="noreferrer"><FiGithub /> GitHub <FiArrowUpRight /></a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer"><FiLinkedin /> LinkedIn <FiArrowUpRight /></a>
-              <a href={`mailto:${profile.email}`}><FiMail /> Email <FiArrowUpRight /></a>
-            </div>
           </div>
           <div className="hero-visual">
             <img src={Headshot} alt="Ahmad Hassan" />
